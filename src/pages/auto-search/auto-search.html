@@ -1,0 +1,37 @@
+
+
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons left>
+        <button ion-button (click)="dismiss()" class="backBtn">
+          <!-- <span ion-text color="primary" showWhen="ios">cancel</span> -->
+          <ion-icon name="md-arrow-back" showWhen="android,windows"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-searchbar placeholder="Search loactions..." dir="rtl" [(ngModel)]="autocomplete.query"  (ionInput)="updateSearch()" (ionCancel)="dismiss()"></ion-searchbar>    
+
+      <!-- <ion-title>
+        {{'chooseLoc' | translate}}
+      </ion-title> -->
+
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+    <!-- <ion-searchbar dir="rtl" [(ngModel)]="autocomplete.query"  (ionInput)="updateSearch()" (ionCancel)="dismiss()">Search loactions ...</ion-searchbar>     -->
+  <ion-list>
+    <ion-item  tappable>
+      <h2> 
+        <ion-icon class="mRight" name="md-locate" ></ion-icon>
+        Near me
+      </h2>
+    </ion-item>
+    <ion-item *ngFor="let item of autocompleteItems" tappable (click)="chooseItem(item)">
+      <!-- <ion-avatar item-left>
+          <img [src]="item.icon">
+      </ion-avatar> -->
+    <h2>{{item.Title}}</h2>
+    <p>{{item.PlaceFormatedCode}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

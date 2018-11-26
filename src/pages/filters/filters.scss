@@ -1,0 +1,31 @@
+page-filters {
+    .scroll-content {
+        background-color: #ffffff !important;
+    }
+    
+    .radioCust{
+        margin: 5px !important;
+        span{
+            margin-left: 27px !important;
+            display: block !important;
+            margin-top: -21px !important;
+        }
+    }
+
+    .searchBtn{
+        display: inline-block!important;
+        vertical-align: middle!important;
+        text-decoration: none!important;
+        letter-spacing: 3px!important;
+        bottom: 0!important;
+        width: 100%!important;
+        position: absolute!important;
+        button{
+            background-color : #fb4b05 !important;
+        }
+    }
+
+    .backBtn{
+        font-size: 20px!important
+    }
+}

@@ -1,0 +1,77 @@
+page-sort-by {
+
+//   font-size: 15px !important;
+//   left: 0 !important;
+//   top: 0 !important;
+//   /* position: absolute; */
+//   display: block !important;
+//   width: 70% !important;
+//   height: 300px !important;
+//   contain: strict !important;
+//   margin-left: 19% !important;
+//   margin-top: 47% !important;
+//   font-weight: 400 !important;
+
+  .scroll-content {
+    background-image: none;
+  }
+
+  .scroll-content {
+    background-color: #ffffff !important;
+  }
+
+  .content {
+
+    font-size: 15px !important;
+    left: 0 !important;
+    top: 0 !important;
+    /* position: absolute; */
+    display: block !important;
+    width: 70% !important;
+    height: 300px !important;
+    contain: strict !important;
+    margin-left: 19% !important;
+    margin-top: 47% !important;
+    font-weight: 400 !important;
+
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.7) !important;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 100%;
+    }
+
+
+  }
+
+  .mt10 {
+    margin-top: 10px;
+  }
+
+  .closeBtn {
+    color: #f53d3d !important;
+    margin-left: 60% !important;
+  }
+
+  /* ----------- Galaxy S4, S5 and Note 3 ----------- */
+  /* Portrait and Landscape */
+  @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+    .closeBtn {
+      color: #f53d3d !important;
+      margin-left: 50% !important;
+    }
+  }
+
+  /* ----------- Galaxy S6 ----------- */
+
+  /* Portrait and Landscape */
+  @media screen and (device-width: 411px) and (device-height: 731px) and (-webkit-device-pixel-ratio: 4) {
+    .closeBtn {
+      color: #f53d3d !important;
+      margin-left: 60% !important;
+    }
+  }
+}

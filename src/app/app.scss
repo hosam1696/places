@@ -14,3 +14,200 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+//# font config .
+ion-app{
+    @font-face {
+        font-family: "Cairo";
+        src: url("")
+    }
+}
+
+/* Regular */
+@font-face {
+    font-family: "Din";
+    src: url('../assets/fonts/Cairo-Regular');
+    src:url('../assets/fonts/Cairo-Regular') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+ion-app{
+    font-family : "Cairo"!important;
+}
+//# ion list style .
+ion-list {
+  ion-item {
+    padding-left: 0px !important;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12) !important;
+  }
+
+  ion-avatar {
+    margin: 0px 16px 0px 0 !important;
+
+    img {
+      width: 150px !important;
+      height: 110px !important;
+      border-radius: 0% !important;
+    }
+  }
+
+  .input-wrapper {
+    ion-label {
+      margin: -11px 8px 0px 0 !important;
+    }
+  }
+
+  h2 {
+    margin: 11px 0px !important;
+    font-weight: bold !important;
+
+    .bedSpan {
+      margin: 0px 20px !important;
+    }
+  }
+
+}
+
+.fRight {
+  float: right;
+}
+
+.mTB10 {
+  margin: 10px 0px;
+}
+
+.scroll-content {
+  background-color: #e6e6e6 !important;
+}
+
+//# tabs 
+.tab-button[aria-selected=true] {
+  .tab-button-text {
+    color: #f53d3d !important;
+  }
+
+  .tab-button-icon {
+    color: #f53d3d !important;
+  }
+}
+
+
+//# toolbar header .
+.toolbar {
+  .toolbar-background {
+    background: #f7f7f7 !important;
+  }
+
+  button {
+    color: #000000 !important;
+  }
+
+  .toolbar-title {
+    color: #000000 !important;
+  }
+}
+
+//# radio check .
+.radio-checked {
+  border-color: #fb4b05 !important;
+
+  .radio-inner {
+    border-color: #fb4b05 !important;
+    background-color: #fb4b05 !important;
+  }
+}
+
+//# select 
+.popover-viewport {
+
+  .item-inner {
+    margin-left: 10px !important;
+  }
+
+  ion-label {
+    color: #000000 !important;
+    margin-top: 0px !important;
+  }
+}
+
+.select-placeholder,
+.select-text {
+  color: #000000 !important;
+  text-align: left;
+  font-weight: bold;
+  font-size: 13px;
+  //margin-right: 11px !important;
+}
+
+ion-select {
+  max-width: 100% !important;
+}
+
+.brdB {
+  border-bottom: 1px solid black;
+}
+
+[aria-checked=true] .alert-checkbox-icon {
+  border-color: #fb4b05 !important;
+  background-color: #fb4b05 !important;
+}
+
+.alert-button {
+  color: #fb4b05 !important;
+}
+
+
+//# start footer transparent.
+ion-footer {
+  &.footer-md::before {
+    background-image: none;
+  }
+
+  .toolbar {
+    .toolbar-background {
+      background: transparent !important;
+    }
+  }
+
+  ion-icon {
+    color: #222 !important;
+    font-size: 29px !important;
+  }
+
+  ion-buttons{
+    display: inline-grid !important
+  }
+
+  .sortBy{
+    color: black !important;
+    font-size: 22px !important;
+    background-color: white !important;
+    padding: 26px;
+    border-radius: 72px;
+    width: 0px;
+    margin-bottom: 12px;
+    box-shadow: 0 7px 1px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    border: 1px solid #d0d0d0;
+  }
+
+  .showMap{
+    color: white !important;
+    font-size: 52px !important;
+    background-color: #d23c00   !important; 
+    font-size: 22px !important;
+    padding: 26px;
+    border-radius: 72px;
+    width: 0px;
+    margin-bottom: 12px;
+    box-shadow: 0 7px 1px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    border: 1px solid #d0d0d0;
+  }
+      
+}
+
+.scroll-content {
+  margin-bottom: 0 !important;
+}
+//# end footer transparent.

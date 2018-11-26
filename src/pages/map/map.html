@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <ion-title>
+      Map
+    </ion-title>
+    <ion-buttons right>
+      <button icon-only ion-button (click)="autoSearchPage()">
+        <ion-icon name="md-search"></ion-icon>
+      </button>
+      <button icon-only ion-button (click)="filter()">
+        FILTERS
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div #map id="map" class="mymap"></div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar transparent>
+    <ion-buttons end>
+      <button *ngIf="pageType == ''" ion-button class="sortBy" (click)="getCurrentLocation()">
+        <!-- <i class="fa fa-sliders" aria-hidden="true"></i> -->
+        <ion-icon name="locate"></ion-icon>
+      </button>
+      <button ion-button class="showMap"  (click)="returnModal()">
+        <i class="fa fa-list-ul" aria-hidden="true"></i>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

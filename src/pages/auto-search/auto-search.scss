@@ -1,0 +1,29 @@
+page-auto-search {
+
+    ion-searchbar{
+        input{
+            box-shadow: none !important;
+            background-color: #f7f7f7!important;
+        }
+        .searchbar-input{
+            padding: 6px 10px!important;
+        }
+        .searchbar-search-icon{
+            display: none !important;
+        }
+    }
+
+    .input-wrapper{
+        ion-label{
+            margin: 3px 19px 3px 13px !important
+        }
+    }
+    
+    .backBtn{
+        font-size: 20px!important
+    }
+
+    .mRight{
+        margin-right: 20px !important
+    }
+}

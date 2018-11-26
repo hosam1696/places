@@ -1,0 +1,123 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Property Finder</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid>
+
+    <ion-row>
+      <ion-col text-center>
+        <p>
+          Sign in or register to sync your favorite properties across devices
+        </p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="socailBtns">
+      <ion-col text-center>
+        <button ion-button full class="face">
+          <i class="fa fa-facebook-official" aria-hidden="true"></i>
+          <span>
+            Continue with Facebook
+          </span>
+        </button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="socailBtns">
+      <ion-col text-center>
+        <button ion-button full class="gmail">
+          <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+          <span>
+            Sign in
+          </span>
+        </button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="loginRow">
+      <ion-col text-center col-6 (click)="goPage(loginPage)">
+        <span>
+          Login in with email
+        </span>
+      </ion-col>
+      <ion-col text-center col-6 (click)="goPage(createAccountPage)">
+        <span>
+          Create account
+        </span>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col>
+        <span class="color1">
+          General
+        </span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="bt bb ptb">
+      <ion-col>
+        <span class="color2">
+          country
+        </span>
+        <br>
+        <span>
+          Egypt
+        </span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class=" bb ptb">
+      <ion-col>
+        <span  class="color2">
+          Area unit
+        </span>
+        <br>
+        <span>
+           Square meter
+          </span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row  class="bt bb ptb">
+      <ion-col>
+        <span class="color2">
+          Currency 
+        </span>
+        <br>
+        <span>
+            L.E 
+          </span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <span class="color1">
+          Notification
+        </span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col col-10>
+          <span>
+            Allow npush notificaions 
+          </span>
+        </ion-col>
+
+        <ion-col col-2>
+            <ion-toggle [(ngModel)]="notifications" (ionChange)="toggleNoti()"></ion-toggle>
+        </ion-col>
+      </ion-row>
+
+  </ion-grid>
+</ion-content>
