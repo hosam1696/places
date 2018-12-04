@@ -1,0 +1,42 @@
+page-view {
+
+  //# start list design .
+  .fItem {
+    border-top-left-radius: 9px !important;
+    border-top-right-radius: 9px !important;
+  }
+
+  .lItem {
+    border-bottom-left-radius: 9px !important;
+    border-bottom-right-radius: 9px !important;
+    font-weight: bold !important;
+    color: #f53d3d !important;
+
+  }
+
+  ion-list {
+    margin: -1px 0 10px !important;
+
+    .item-inner {
+      font-weight: bold !important;
+      color: #f53d3d !important;
+
+    }
+  }
+
+  .custp {
+    padding: 8px !important;
+  }
+
+  background-color: rgba(0, 0, 0, 0.32941176470588235) !important;
+
+  .scroll-content {
+    background-color: rgba(74, 74, 74, 0.30196078431372547) !important;
+  }
+
+  .content{
+    background-color: rgba(130, 130, 130, 0.10980392156862745)!important;
+  }
+
+  //# end list design .
+}

@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ActionSheetController } from 'ionic-angular';
 
 import { Geolocation } from '@ionic-native/geolocation';
 import { } from '@types/googlemaps';
@@ -16,10 +16,13 @@ export class MapPage {
   map: any;
   pageType: string = '';
 
+  viewSelected: string = 'map';
+
   constructor(
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public geoloction: Geolocation,
+    public actionSheetCtrl: ActionSheetController,
     public navParams: NavParams) {
 
       this.pageType = this.navParams.get('pageType');
@@ -74,5 +77,14 @@ export class MapPage {
     }
   }
 
-
+  goView(){
+    let ViewModal = this.modalCtrl.create('ViewPage',{typePage:'map'});
+    ViewModal.onDidDismiss(data => {
+      if( data.page != '' ){
+        this.navCtrl.push(data.page);
+      }
+      console.log(data);
+    });
+    ViewModal.present();
+  }
 }

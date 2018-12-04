@@ -17,25 +17,26 @@
 
 
 //# font config .
-ion-app{
-    @font-face {
-        font-family: "Cairo";
-        src: url("")
-    }
+ion-app {
+  @font-face {
+    //font-family: "Cairo";
+    src: url("")
+  }
 }
 
 /* Regular */
 @font-face {
-    font-family: "Din";
-    src: url('../assets/fonts/Cairo-Regular');
-    src:url('../assets/fonts/Cairo-Regular') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Din";
+  src: url('../assets/fonts/Cairo-Regular');
+  src: url('../assets/fonts/Cairo-Regular') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-ion-app{
-    font-family : "Cairo"!important;
+ion-app {
+ // font-family: "Cairo" !important;
 }
+
 //# ion list style .
 ion-list {
   ion-item {
@@ -48,14 +49,15 @@ ion-list {
 
     img {
       width: 150px !important;
-      height: 110px !important;
+      height: 118px !important;
       border-radius: 0% !important;
     }
   }
 
   .input-wrapper {
     ion-label {
-      margin: -11px 8px 0px 0 !important;
+      margin: 0px 8px 0px 0 !important;
+      padding: 5px;
     }
   }
 
@@ -75,7 +77,7 @@ ion-list {
 }
 
 .mTB10 {
-  margin: 10px 0px;
+  //margin: 10px 0px;
 }
 
 .scroll-content {
@@ -107,6 +109,10 @@ ion-list {
   .toolbar-title {
     color: #000000 !important;
   }
+
+  .button-inner {
+    font-size: 13px !important;
+  }
 }
 
 //# radio check .
@@ -118,6 +124,7 @@ ion-list {
     background-color: #fb4b05 !important;
   }
 }
+
 
 //# select 
 .popover-viewport {
@@ -141,6 +148,8 @@ ion-list {
   //margin-right: 11px !important;
 }
 
+
+
 ion-select {
   max-width: 100% !important;
 }
@@ -161,53 +170,120 @@ ion-select {
 
 //# start footer transparent.
 ion-footer {
-  &.footer-md::before {
-    background-image: none;
+  //# start old footer .
+  // &.footer-md::before {
+  //   background-image: none;
+  // }
+
+  // .toolbar {
+  //   .toolbar-background {
+  //     background: transparent !important;
+  //   }
+
+  //   .button-inner {
+  //     font-size: 20px !important;
+  //   }
+  // }
+
+  // ion-icon {
+  //   color: #222 !important;
+  //   font-size: 29px !important;
+  // }
+
+  // ion-buttons {
+  //   display: inline-grid !important
+  // }
+
+
+  // .sortBy {
+  //   color: black !important;
+  //   font-size: 22px !important;
+  //   background-color: white !important;
+  //   padding: 26px;
+  //   border-radius: 72px;
+  //   width: 0px;
+  //   margin-bottom: 12px;
+  //   box-shadow: 0 7px 1px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  //   border: 1px solid #d0d0d0;
+  // }
+
+  // .showMap {
+  //   color: white !important;
+  //   font-size: 52px !important;
+  //   background-color: #d23c00 !important;
+  //   font-size: 22px !important;
+  //   padding: 26px;
+  //   border-radius: 72px;
+  //   width: 0px;
+  //   margin-bottom: 12px;
+  //   box-shadow: 0 7px 1px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  //   border: 1px solid #d0d0d0;
+  // }
+
+  //# end old footer .
+
+//# start new footer .
+&.footer-md::before {
+  background-image: none;
+}
+text-align: center !important;
+.toolbar {
+  .toolbar-background {
+    background: transparent !important;
   }
 
-  .toolbar {
-    .toolbar-background {
-      background: transparent !important;
-    }
+  .button-inner {
   }
 
-  ion-icon {
-    color: #222 !important;
-    font-size: 29px !important;
+  
+  
+  margin-bottom: 20px!important;
+  font-size: 13px!important;
+  .viewSpan{
+    color: #777777  !important;
+    font-size: 15px !important;
+    padding: 20px  !important;
+    border-top-left-radius: 25px!important;
+    border-bottom-left-radius: 25px!important;
+    background-color: white!important;
+    border: 1px solid #b7b7b7!important;
+    // box-shadow: 0 7px 1px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   }
 
-  ion-buttons{
-    display: inline-grid !important
+  button.activated {
+    //background-color: white !important;
+    opacity: 1!important;
   }
 
-  .sortBy{
-    color: black !important;
-    font-size: 22px !important;
-    background-color: white !important;
-    padding: 26px;
-    border-radius: 72px;
-    width: 0px;
-    margin-bottom: 12px;
-    box-shadow: 0 7px 1px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-    border: 1px solid #d0d0d0;
-  }
+  .sortSpan{
+    font-size: 15px !important;
+    color: #777777  !important;
+    border: 1px solid #9e9e9e!important;
+    padding: 20px  !important;
+    border-top-right-radius: 25px!important;
+    border-bottom-right-radius: 25px!important;
+    background-color: white!important;
+    // box-shadow: 0 7px 1px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    margin-left: -5px !important;
 
-  .showMap{
-    color: white !important;
-    font-size: 52px !important;
-    background-color: #d23c00   !important; 
-    font-size: 22px !important;
-    padding: 26px;
-    border-radius: 72px;
-    width: 0px;
-    margin-bottom: 12px;
-    box-shadow: 0 7px 1px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-    border: 1px solid #d0d0d0;
   }
-      
+}
+
+
+//# end new footer .
+
+}
+
+.actionSheetColor{
+  color:  #f53d3d !important;
 }
 
 .scroll-content {
   margin-bottom: 0 !important;
 }
+
 //# end footer transparent.
+
+.bBold{
+  font-weight: bold !important
+}

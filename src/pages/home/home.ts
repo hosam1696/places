@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
+import { NavController, ModalController , ActionSheetController  } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -8,8 +8,11 @@ import { NavController, ModalController } from 'ionic-angular';
 })
 export class HomePage {
 
+  viewSelected: string = 'list';
+
   constructor(
     public navCtrl: NavController,
+    public actionSheetCtrl: ActionSheetController ,
     public modalCtrl: ModalController,
     ) {
 
@@ -42,7 +45,15 @@ export class HomePage {
     sortModal.present();
   }
 
-  mapModal(){
-    this.navCtrl.push('MapPage',{pageType:''});
+  goView(){
+    let ViewModal = this.modalCtrl.create('ViewPage',{typePage:'list'});
+    ViewModal.onDidDismiss(data => {
+      if( data.page != '' ){
+        this.navCtrl.push(data.page);
+      }
+      console.log(data);
+    });
+    ViewModal.present();
   }
+
 }

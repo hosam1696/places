@@ -1,0 +1,40 @@
+page-gallery {
+
+
+
+  ion-card {
+    width: 100% !important;
+    margin: 10px 0px !important;
+    border-radius: 2px !important;
+
+    img {
+      height: 200px !important;
+    }
+
+    ion-card-content {
+      padding: 0px !important;
+    }
+
+    .custSpan3{
+        background: rgba(255, 0, 0, 0.74);
+        padding: 10px 13px;
+        border-radius: 40px;
+        color: white !important;
+    }
+
+    .custSpan2{
+        background: rgba(255, 0, 0, 0.74);
+        padding: 10px 12px;
+        border-radius: 40px;
+        color: white !important;
+    }
+    .divCl{
+        margin-top: 10px!important;
+        color:  rgba(255, 0, 0, 0.74) !important;
+
+    }
+    .bedSpan{
+        margin: 0px 10px!important;
+    }
+  }
+}

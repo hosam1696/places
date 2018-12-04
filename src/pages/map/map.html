@@ -1,5 +1,5 @@
-<ion-header>
-  <ion-navbar hideBackButton>
+<ion-header text-left>
+  <ion-navbar  hideBackButton>
     <ion-title>
       Map
     </ion-title>
@@ -22,10 +22,20 @@
 </ion-content>
 
 <ion-footer>
+    <ion-toolbar transparent>
+  
+            <ion-buttons >
+                <button ion-button class="sortBy viewSpan" (click)="goView()">
+                  View
+                </button>
+              </ion-buttons>
+  
+    </ion-toolbar>
+  </ion-footer>
+<!-- <ion-footer>
   <ion-toolbar transparent>
     <ion-buttons end>
       <button *ngIf="pageType == ''" ion-button class="sortBy" (click)="getCurrentLocation()">
-        <!-- <i class="fa fa-sliders" aria-hidden="true"></i> -->
         <ion-icon name="locate"></ion-icon>
       </button>
       <button ion-button class="showMap"  (click)="returnModal()">
@@ -33,4 +43,4 @@
       </button>
     </ion-buttons>
   </ion-toolbar>
-</ion-footer>
+</ion-footer> -->
