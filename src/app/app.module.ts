@@ -9,6 +9,10 @@ import { MyApp } from './app.component';
 import { Geolocation } from '@ionic-native/geolocation';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { ApiProvider } from '../providers/api/api';
+import { HttpClientModule } from '@angular/common/http';
+import { GlobalProvider } from '../providers/global/global';
+import { ClientProvider } from '../providers/client/client';
 
 @NgModule({
   declarations: [
@@ -16,6 +20,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -27,7 +32,10 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Geolocation,
-    InAppBrowser
+    InAppBrowser,
+    ApiProvider,
+    GlobalProvider,
+    ClientProvider
   ]
 })
 export class AppModule {}

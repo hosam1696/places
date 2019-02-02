@@ -3,7 +3,16 @@
   "integrations": {
     "cordova": {}
   },
+  "proxies": [
+    {
+      "path": "/api/",
+      "proxyUrl": "http://tamleek-eg.com/tamlek/api/"
+    },
+    {
+      "path": "/api/",
+      "proxyUrl": "http://tamleek-eg.com/tamlek/"
+    }
+  ],
   "type": "ionic-angular",
-  "pro_id": "0f50a131",
   "id": "0f50a131"
 }
