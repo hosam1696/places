@@ -14,4 +14,7 @@ export class ClientProvider {
   register(registerData) {
     return this.api.post('clientRegister', registerData);
   }
+  getClientProfile (clientProfile){
+    return this.api.get('clientProfile',clientProfile);
+  }
 }

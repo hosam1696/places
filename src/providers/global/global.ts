@@ -15,5 +15,11 @@ export class GlobalProvider {
   getAbout() {
     return this.api.get('about');
   }
+  getBlog (){
+    return this.api.get('blog');
+  }
 
+  getFavouriteList(){
+    return this.api.get('favorite-list');
+}
 }
