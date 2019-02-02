@@ -22,4 +22,8 @@ export class CreateAccountPage {
     console.log('ionViewDidLoad CreateAccountPage');
   }
 
+  goBack(){
+    this.navCtrl.pop();
+  }
+
 }

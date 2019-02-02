@@ -7,6 +7,12 @@
 <ion-header>
 
   <ion-navbar>
+      <ion-buttons right start (click)="goBack()">
+
+          <button icononly ion-button>
+            <i class="fa fa-times backBtn" aria-hidden="true"></i>
+          </button>
+        </ion-buttons>
     <ion-title>Create account</ion-title>
   </ion-navbar>
 
@@ -36,8 +42,9 @@
       <ion-input type="text"></ion-input>
     </ion-item>
 
+  <button class="searchBtn2" full ion-button>Create account</button>
+
   </ion-list>
 
-  <button class="searchBtn" full ion-button>Create account</button>
 
 </ion-content>

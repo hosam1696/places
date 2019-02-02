@@ -16,8 +16,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class BasicTabsPage {
 
   tab1Root = 'HomePage';
-  tab2Root = 'SavedPage';
+  tab2Root = 'SavedListPage';
   tab3Root = 'MyAccountPage';
+  tab4Root = 'AgentLoginPage';
 
   constructor() {
   }

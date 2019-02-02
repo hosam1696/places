@@ -8,6 +8,8 @@ import { MyApp } from './app.component';
 
 import { Geolocation } from '@ionic-native/geolocation';
 
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -24,7 +26,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Geolocation
+    Geolocation,
+    InAppBrowser
   ]
 })
 export class AppModule {}

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the DetailsPage page.
+ * Generated class for the AgentLoginPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,20 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-details',
-  templateUrl: 'details.html',
+  selector: 'page-agent-login',
+  templateUrl: 'agent-login.html',
 })
-export class DetailsPage {
+export class AgentLoginPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DetailsPage');
-  }
-
-  goBack(){
-    this.navCtrl.setRoot('BasicTabsPage');
+    console.log('ionViewDidLoad AgentLoginPage');
   }
 
 }

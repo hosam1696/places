@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController , ActionSheetController , App } from 'ionic-angular';
+import { NavController, ModalController, ActionSheetController, App } from 'ionic-angular';
+
 
 @IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-saved-list',
+  templateUrl: 'saved-list.html',
 })
-export class HomePage {
+export class SavedListPage {
+
 
   viewSelected: string = 'list';
-  sortBySelected: string = 'featured';
 
   constructor(
     public navCtrl: NavController,
@@ -21,7 +22,7 @@ export class HomePage {
   }
 
   goDetails(){
-    //this.navCtrl.setRoot('DetailsPage');
+    //this.navCtrl.push('DetailsPage');
     this.app.getRootNav().setRoot('DetailsPage');
   }
 
@@ -43,19 +44,13 @@ export class HomePage {
     filterModal.present();
   }
 
-  sortByModal() {
-    let sortModal = this.modalCtrl.create('SortByPage',{typeSort: this.sortBySelected});
-    sortModal.onDidDismiss(data => {
-      if( data.type != '' ){
-        this.sortBySelected =  data.type;
-      }
-      console.log(data);
-    });
+  sortByModal(img) {
+    let sortModal = this.modalCtrl.create('SortByPage');
     sortModal.present();
   }
 
   goView(){
-    let ViewModal = this.modalCtrl.create('ViewPage',{typePage:'list'});
+    let ViewModal = this.modalCtrl.create('ViewSavedPage',{typePage:'list'});
     ViewModal.onDidDismiss(data => {
       if( data.page != '' ){
         this.navCtrl.push(data.page);

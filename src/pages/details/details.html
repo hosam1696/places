@@ -1,24 +1,29 @@
-
-
 <ion-header>
 
-    <ion-navbar>
-      <ion-buttons class="tag" left>
+  <ion-navbar hideBackButton>
+    <ion-buttons class="tag" left>
 
-        <button icononly end>
-            <i class="fa fa-heart fav" aria-hidden="true"></i>
-          </button>
-          <button icononly end>
-            <i class="fa fa-share-alt share" aria-hidden="true"></i>
-          </button>
-        </ion-buttons>
-      <ion-title> Deatils </ion-title>
-    </ion-navbar>
-  
-  </ion-header>
+      <button icononly end>
+        <i class="fa fa-heart fav" aria-hidden="true"></i>
+      </button>
+      <button icononly end>
+        <i class="fa fa-share-alt share" aria-hidden="true"></i>
+      </button>
+    </ion-buttons>
+    <ion-buttons left start   (click)="goBack()">
+
+        <button icononly ion-button >
+            <i class="fa fa-chevron-left backBtn" aria-hidden="true"></i>
+        </button>
+      </ion-buttons>
+    <ion-title> Deatils </ion-title>
+   
+  </ion-navbar>
+
+</ion-header>
 
 <ion-content>
-  
+
 
   <!-- <ion-slides 
         (click)="goDetails(serv.id)"
@@ -34,8 +39,8 @@
           </ion-slide>
         </ion-slides> -->
 
-
-  <ion-slides autoplay="5000" loop="true" pager="true" speed="500" class="slides" style="max-height:200px">
+        <!-- pager="true" -->
+  <ion-slides autoplay="5000" loop="true" speed="500" class="slides" style="max-height:200px">
     <ion-slide>
       <img src="assets/imgs/img1.jpeg">
     </ion-slide>
@@ -46,6 +51,7 @@
       <img src="assets/imgs/img3.jpg">
     </ion-slide>
   </ion-slides>
+  <div class="contImg"><i class="fa fa-camera" aria-hidden="true"></i> 1 of 10</div>
 
   <div padding>
     <h4 style="margin: 0px 0px 5px 0px !important;">
@@ -217,54 +223,80 @@
     <!-- end About the area -->
 
     <!-- start Property description -->
-    <ion-grid class="viewMap"> 
-        <ion-row>
-          <ion-col col-12>
-            <h4 class="m0">
-                Property description
-            </h4>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col >
-            <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took 
-            </p>
-          </ion-col>
-          
-        </ion-row>
-       
-  
+    <ion-grid class="viewMap">
+      <ion-row>
+        <ion-col col-12>
+          <h4 class="m0">
+            Property description
+          </h4>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took
+          </p>
+        </ion-col>
+
+      </ion-row>
+
+
     </ion-grid>
     <!-- end Property description -->
 
-       <!-- start present  -->
-       <ion-grid > 
-          <ion-row>
-            <ion-col col-12>
-              <h4 class="m0">
-                This property is presented by 
-              </h4>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-                <img src="assets/imgs/img3.jpg" style="width: 90px;"> 
-                <p class="m0"> Egypt Best Properties</p>
-                <p class="m0"> Egypt, Cairo, 5th</p>
+    <!-- start present  -->
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <h4 class="m0">
+            This property is presented by
+          </h4>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <img src="assets/imgs/img3.jpg" style="width: 90px;">
+          <p class="m0"> Egypt Best Properties</p>
+          <p class="m0"> Egypt, Cairo, 5th</p>
 
-                <div class="viewBrok">
-                    <i class="fa fa-list iconColor" aria-hidden="true"></i>
-                    VIEW BROKER PROPERTIES
-                </div>
+          <div class="viewBrok">
+            <i class="fa fa-list iconColor" aria-hidden="true"></i>
+            VIEW BROKER PROPERTIES
+          </div>
 
-            </ion-col>
-            
-          </ion-row>
-         
-    
-      </ion-grid>
-      <!-- end Property description -->
+        </ion-col>
+
+      </ion-row>
+
+
+    </ion-grid>
+    <!-- end Property description -->
   </div>
 
 </ion-content>
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+        <div class="footDiv">
+          <i class="fa fa-commenting" aria-hidden="true"></i>
+          <h5>SMS</h5>
+        </div>
+      </ion-col>
+      <ion-col col-4>
+        <div class="footDiv">
+          <i class="fa fa-phone" aria-hidden="true"></i>
+          <h5>Call</h5>
+        </div>
+      </ion-col>
+      <ion-col col-4>
+        <div class="footDiv ">
+          <i class="fa fa-whatsapp whatsApp" aria-hidden="true"></i>
+          <h5 class="whatsApp">WhastApp</h5>
+        </div>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

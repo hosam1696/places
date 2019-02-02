@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-navbar left hideBackButton>
+    <ion-title>
+      Saved  Gallery
+    </ion-title>
+    <ion-buttons right>
+      <button icon-only ion-button (click)="autoSearchPage()">
+        <ion-icon name="md-search"></ion-icon>
+      </button>
+      <button icon-only ion-button (click)="filter()">
+        FILTERS
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card (click)="goDetails()">
+      <!-- <img src="assets/imgs/img3.jpg"> pager="true" style="max-height:200px"-->
+      <ion-slides autoplay="5000" loop="true"  speed="500" class="slides" >
+          <ion-slide>
+            <img src="assets/imgs/img1.jpeg">
+          </ion-slide>
+          <ion-slide>
+            <img src="assets/imgs/img2.jpg">
+          </ion-slide>
+          <ion-slide>
+            <img src="assets/imgs/img3.jpg">
+          </ion-slide>
+        </ion-slides>
+      <div class="contImg"><i class="fa fa-camera" aria-hidden="true"></i> 1 of 10</div>
+
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-8>
+            <h3 class="bBold">
+              15,400,000 EGP
+            </h3>
+            <p>
+              I've had a pretty messed up day.
+            </p>
+            <h4>
+              <span> Villa </span>
+              <span class="bedSpan"> <i class="fa fa-bed" aria-hidden="true"></i> 4 </span>
+              <span> <i class="fa fa-bath" aria-hidden="true"></i> 2 </span>
+            </h4>
+          </ion-col>
+          <ion-col style="margin-top: 9px" col-2 text-center class="fSize" (click)="startShare()">
+            <span class="custSpan3"><i class="fa fa-phone call" aria-hidden="true"></i></span><br>
+            <div class="divCl">Call</div>
+          </ion-col>
+          <ion-col style="margin-top: 9px" col-2 text-center class="fSize" (click)="startShare()">
+            <span class="custSpan2"><i class="fa fa-envelope call" aria-hidden="true"></i></span><br>
+            <div class="divCl">Email</div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar transparent>
+
+    <ion-buttons>
+      <button ion-button class="sortBy viewSpan" (click)="goView()">
+        View
+      </button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-footer>

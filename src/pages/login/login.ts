@@ -28,4 +28,8 @@ export class LoginPage {
   goPage(page){
     this.navCtrl.push(page);
   }
+
+  goBack(){
+    this.navCtrl.pop();
+  }
 }

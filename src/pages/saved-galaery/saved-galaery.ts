@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, App } from 'ionic-angular';
 
 /**
- * Generated class for the GalleryPage page.
+ * Generated class for the SavedGalaeryPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,11 +10,12 @@ import { IonicPage, NavController, NavParams, ModalController, App } from 'ionic
 
 @IonicPage()
 @Component({
-  selector: 'page-gallery',
-  templateUrl: 'gallery.html',
+  selector: 'page-saved-galaery',
+  templateUrl: 'saved-galaery.html',
 })
-export class GalleryPage {
+export class SavedGalaeryPage {
 
+ 
   constructor(
     public navCtrl: NavController, 
     public modalCtrl: ModalController,
@@ -26,14 +27,12 @@ export class GalleryPage {
     console.log('ionViewDidLoad GalleryPage');
   }
 
-  
   goDetails(){
     //this.navCtrl.push('DetailsPage');
     this.app.getRootNav().setRoot('DetailsPage');
   }
-
   goView(){
-    let ViewModal = this.modalCtrl.create('ViewPage',{typePage:'gallery'});
+    let ViewModal = this.modalCtrl.create('ViewSavedPage',{typePage:'gallery'});
     ViewModal.onDidDismiss(data => {
       if( data.page != '' ){
         this.navCtrl.push(data.page);
@@ -61,4 +60,5 @@ export class GalleryPage {
     });
     filterModal.present();
   }
+
 }

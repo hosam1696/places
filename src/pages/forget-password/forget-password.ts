@@ -22,4 +22,8 @@ export class ForgetPasswordPage {
     console.log('ionViewDidLoad ForgetPasswordPage');
   }
 
+  goBack(){
+    this.navCtrl.pop();
+  }
+
 }

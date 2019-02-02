@@ -1,4 +1,4 @@
-<ion-content (click)="close()">
+<ion-content (click)="close('')">
 
 </ion-content>
 <ion-footer class="custp" >
@@ -6,24 +6,36 @@
   <!-- <div class="divContainer"> -->
 
   <ion-list>
-    <ion-item text-center class="fItem">
-      <i class="fa fa-check" aria-hidden="true"></i>
-      Map
+    <ion-item text-center class="fItem" (click)="close('featured')" >
+      <i *ngIf="typeSort == 'featured'" class="fa fa-check" aria-hidden="true"></i>
+      Featured
     </ion-item>
-    <ion-item text-center>
-      <i class="fa fa-check" aria-hidden="true"></i>
-      List
+    <ion-item text-center (click)="close('newest')">
+      <i *ngIf="typeSort == 'newest'" class="fa fa-check" aria-hidden="true"  ></i>
+      Newest
     </ion-item>
-    <ion-item text-center class="lItem">
-      <i class="fa fa-check" aria-hidden="true"></i>
-      Gallary
+    <ion-item text-center (click)="close('pricelow')">
+      <i *ngIf="typeSort == 'pricelow'" class="fa fa-check" aria-hidden="true"  ></i>
+      Price (low)
+    </ion-item>
+    <ion-item text-center  (click)="close('pricehigh')">
+      <i *ngIf="typeSort == 'pricehigh'" class="fa fa-check" aria-hidden="true"  ></i>
+      Price (high)
+    </ion-item>
+    <ion-item text-center (click)="close('bedsleast')">
+      <i *ngIf="typeSort == 'bedsleast'" class="fa fa-check" aria-hidden="true"  ></i>
+      Beds (least)
+    </ion-item>
+    <ion-item text-center class="lItem" (click)="close('bedsmost')">
+      <i *ngIf="typeSort == 'bedsmost'" class="fa fa-check" aria-hidden="true"  ></i>
+      Beds (most)
     </ion-item>
   </ion-list>
 
   <!-- </div> -->
 
 
-  <ion-item text-center class="fItem lItem" (click)="close()">
+  <ion-item text-center class="fItem lItem" (click)="close('')">
     Cancel
   </ion-item>
 

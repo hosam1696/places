@@ -1,0 +1,31 @@
+<ion-content (click)="close('')">
+
+</ion-content>
+<ion-footer class="custp" >
+  <!-- <ion-toolbar> -->
+  <!-- <div class="divContainer"> -->
+
+  <ion-list>
+    <ion-item text-center class="fItem" (click)="close(savedMapPage)" >
+      <i *ngIf="typePage == 'map'" class="fa fa-check" aria-hidden="true"></i>
+      Map
+    </ion-item>
+    <ion-item text-center (click)="close(savedListPage)">
+      <i *ngIf="typePage == 'list'" class="fa fa-check" aria-hidden="true"  ></i>
+      List
+    </ion-item>
+    <ion-item text-center class="lItem" (click)="close(savedGalaeryPage)">
+      <i *ngIf="typePage == 'gallery'" class="fa fa-check" aria-hidden="true"  ></i>
+      Gallary
+    </ion-item>
+  </ion-list>
+
+  <!-- </div> -->
+
+
+  <ion-item text-center class="fItem lItem" (click)="close('')">
+    Cancel
+  </ion-item>
+
+  <!-- </ion-toolbar> -->
+</ion-footer>

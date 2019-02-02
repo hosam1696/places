@@ -1,4 +1,30 @@
 page-details {
+  ion-footer{
+    &.footer-md::before {
+      //background-image: none;
+    }
+    .grid{
+      padding: 0px!important;
+      border-top: 1px solid rgba(121, 121, 121, 0.55) !important;
+    }
+
+    .col{
+      padding: 2px!important;
+    }
+    .footDiv{
+      display: inline-flex !important;
+      color: #fb4b05 !important;
+      //margin-top: 18px !important;
+      i{
+        font-size: 22px !important;
+        margin-top: 13px !important;
+        margin-right: 8px !important;
+      }
+      .whatsApp{
+      color: #2ec95c !important;
+      }
+    }
+  }
   .scroll-content {
     background-color: #ffffff !important;
     margin-bottom: 56px !important;
@@ -8,6 +34,8 @@ page-details {
     position: relative !important;
   }
 
+
+  
   .mb5 {
     margin-bottom: 10px !important;
   }
@@ -38,11 +66,12 @@ page-details {
     font-weight: bold;
 
   }
+ 
   .tag {
     float: right !important;
     position: absolute;
     right: 0px;
-    top: 10px;
+    top: 15px;
     z-index: 1000;
     padding: 5px;
     color: #FFFFFF;

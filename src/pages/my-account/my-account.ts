@@ -1,7 +1,7 @@
 import { CreateAccountPage } from './../create-account/create-account';
 import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the MyAccountPage page.
@@ -21,7 +21,9 @@ export class MyAccountPage {
   createAccountPage: any = 'CreateAccountPage';
 
   notifications: boolean = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams
+    , public app: App , public modalCtrl :ModalController
+    ) {
   }
 
   ionViewDidLoad() {
@@ -38,8 +40,20 @@ export class MyAccountPage {
     //localStorage.setItem("allow_notifications", noti); 
   }
 
-  goPage(page){
-    this.navCtrl.push(page);
-  }
+  // goPage(page){
+  //   this.navCtrl.push(page);
+  //   this.app.getRootNav().setRoot(page);
 
+  // }
+
+  goPage(page) {
+    let sortModal = this.modalCtrl.create(page);
+    sortModal.onDidDismiss(data => {
+      if( data.type != '' ){
+        //this.sortBySelected =  data.type;
+      }
+      console.log(data);
+    });
+    sortModal.present();
+  }
 }

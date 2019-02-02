@@ -1,7 +1,12 @@
-
 <ion-header>
 
   <ion-navbar>
+    <ion-buttons right start (click)="goBack()">
+
+      <button icononly ion-button>
+        <i class="fa fa-times backBtn" aria-hidden="true"></i>
+      </button>
+    </ion-buttons>
     <ion-title>Log in with email</ion-title>
   </ion-navbar>
 
@@ -13,18 +18,19 @@
   <ion-list padding>
     <ion-item>
       <ion-label style="margin: 13px 8px 13px 0 !important" color="primary" floating>Email</ion-label>
-      <ion-input type="text" ></ion-input>
+      <ion-input type="text"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label style="margin: 13px 8px 13px 0 !important" color="primary" floating>Password</ion-label>
-      <ion-input type="text" ></ion-input>
+      <ion-input type="text"></ion-input>
     </ion-item>
     <div class="forget" text-right (click)="goPage(forgetPasswordPage)">
       Forget password?
     </div>
+    <button class="searchBtn2" full ion-button>Log in</button>
+
   </ion-list>
 
-  <button class="searchBtn" full ion-button>Log in</button>
 
 </ion-content>

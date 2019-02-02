@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the SortByPage page.
@@ -15,19 +15,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SortByPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  typeSort: string = '';
+  constructor(
+    public viewCtrl:ViewController,
+    public navCtrl: NavController, public navParams: NavParams) {
+
+    this.typeSort = this.navParams.get('typeSort');
+    console.log('typeSort = '+this.typeSort);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SortByPage');
+    console.log('ionViewDidLoad ViewPage');
   }
 
-  close() {
-    this.navCtrl.pop();
-  }
+  close(type) {
 
-  go()
-  {
-    console.log('xxxxxxxxxx');
+    this.viewCtrl.dismiss({type:type});
   }
 }
