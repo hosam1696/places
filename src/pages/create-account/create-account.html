@@ -24,25 +24,25 @@
   <ion-list padding>
     <ion-item>
       <ion-label style="margin: 13px 8px 13px 0 !important" color="primary" floating>First Name</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="registerData.FirstName"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label style="margin: 13px 8px 13px 0 !important" color="primary" floating>Last Name</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="registerData.LastName"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label style="margin: 13px 8px 13px 0 !important" color="primary" floating>Email</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="registerData.Email"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label style="margin: 13px 8px 13px 0 !important" color="primary" floating>Password</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text"  [(ngModel)]="registerData.Password"></ion-input>
     </ion-item>
 
-  <button class="searchBtn2" full ion-button>Create account</button>
+  <button class="searchBtn2" full ion-button (click)="onRegister()">Create account</button>
 
   </ion-list>
 

@@ -40,6 +40,8 @@ export class LoginPage {
         .subscribe(result=> {
           console.info({response:result});
           if (result.success) {
+            this.navCtrl.setRoot('HomePage');
+
             // Nav To Home Page !
           } else {
             console.warn('Wrong Email Or Password');
