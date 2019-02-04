@@ -9,7 +9,7 @@ import { UiProvider } from '../../providers/ui';
   templateUrl: 'create-account.html',
 })
 export class CreateAccountPage {
-  registerData = { name: '', email: '', phone: '', address: '', password: '' };
+  registerData = { name: '', email: '',  password: '',address: '', phone: '', password_confirmation:'' };
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -30,7 +30,13 @@ export class CreateAccountPage {
     if (Object.values(this.registerData).every(Boolean)) {
       const registerData = {
         ...this.registerData,
-        password_confirm: this.registerData.password
+       
+        name:this.registerData.name,
+        email:this.registerData.email,
+        password:this.registerData.password,
+        address:this.registerData.address,
+        phone:this.registerData.phone,
+        password_confirmation: this.registerData.password_confirmation,
       };
       this.clientProvider.register(registerData)
         .subscribe(result => {
