@@ -19,27 +19,6 @@
       </ion-col>
     </ion-row>
 
-    <ion-row class="socailBtns">
-      <ion-col text-center>
-        <button ion-button full class="face">
-          <i class="fa fa-facebook-official" aria-hidden="true"></i>
-          <span>
-            Continue with Facebook
-          </span>
-        </button>
-      </ion-col>
-    </ion-row>
-
-    <ion-row class="socailBtns">
-      <ion-col text-center>
-        <button ion-button full class="gmail">
-          <i class="fa fa-google-plus-square" aria-hidden="true"></i>
-          <span>
-            Sign in
-          </span>
-        </button>
-      </ion-col>
-    </ion-row>
 
     <ion-row class="loginRow">
       <ion-col text-center col-6 (click)="goPage(loginPage)">
@@ -98,26 +77,5 @@
           </span>
       </ion-col>
     </ion-row> -->
-
-    <ion-row>
-      <ion-col>
-        <span class="color1">
-          Notification
-        </span>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-        <ion-col col-10>
-          <span>
-            Allow push notificaions 
-          </span>
-        </ion-col>
-
-        <ion-col col-2>
-            <ion-toggle [(ngModel)]="notifications" (ionChange)="toggleNoti()"></ion-toggle>
-        </ion-col>
-      </ion-row>
-
   </ion-grid>
 </ion-content>

@@ -7,12 +7,12 @@
 <ion-header>
 
   <ion-navbar>
-      <ion-buttons right start (click)="goBack()">
+    <ion-buttons right start (click)="goBack()">
 
-          <button icononly ion-button>
-            <i class="fa fa-times backBtn" aria-hidden="true"></i>
-          </button>
-        </ion-buttons>
+      <button icononly ion-button>
+        <i class="fa fa-times backBtn" aria-hidden="true"></i>
+      </button>
+    </ion-buttons>
     <ion-title>Create account</ion-title>
   </ion-navbar>
 
@@ -23,26 +23,29 @@
 
   <ion-list padding>
     <ion-item>
-      <ion-label style="margin: 13px 8px 13px 0 !important" color="primary" floating>First Name</ion-label>
-      <ion-input type="text" [(ngModel)]="registerData.FirstName"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label style="margin: 13px 8px 13px 0 !important" color="primary" floating>Last Name</ion-label>
-      <ion-input type="text" [(ngModel)]="registerData.LastName"></ion-input>
+      <ion-label style="margin: 13px 8px 13px 0 !important" color="primary" floating>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="registerData.name"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label style="margin: 13px 8px 13px 0 !important" color="primary" floating>Email</ion-label>
-      <ion-input type="text" [(ngModel)]="registerData.Email"></ion-input>
+      <ion-input type="email" [(ngModel)]="registerData.email"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label style="margin: 13px 8px 13px 0 !important" color="primary" floating>Password</ion-label>
-      <ion-input type="text"  [(ngModel)]="registerData.Password"></ion-input>
+      <ion-label style="margin: 13px 8px 13px 0 !important" color="primary" floating>Address</ion-label>
+      <ion-input type="text" [(ngModel)]="registerData.address"></ion-input>
     </ion-item>
-
-  <button class="searchBtn2" full ion-button (click)="onRegister()">Create account</button>
+    <ion-item>
+      <ion-label style="margin: 13px 8px 13px 0 !important" color="primary" floating>Phone</ion-label>
+      <ion-input type="number" [(ngModel)]="registerData.phone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label style="margin: 13px 8px 13px 0 !important" color="primary" floating>Password</ion-label>
+      <ion-input type="text" [(ngModel)]="registerData.password"></ion-input>
+    </ion-item>
+    <br>
+    <button class="searchBtn2" full ion-button (click)="onRegister()">Create account</button>
 
   </ion-list>
 
