@@ -7,12 +7,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 
 import { Geolocation } from '@ionic-native/geolocation';
-
+import { IonicStorageModule } from '@ionic/storage';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { ApiProvider } from '../providers/api/api';
 import { HttpClientModule } from '@angular/common/http';
 import { GlobalProvider } from '../providers/global/global';
 import { ClientProvider } from '../providers/client/client';
+import { AppstorageProvider } from '../providers/appstorage/appstorage';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ClientProvider } from '../providers/client/client';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -30,12 +32,13 @@ import { ClientProvider } from '../providers/client/client';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     Geolocation,
     InAppBrowser,
     ApiProvider,
     GlobalProvider,
-    ClientProvider
+    ClientProvider,
+    AppstorageProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }

@@ -2,13 +2,8 @@ import { ForgetPasswordPage } from './../forget-password/forget-password';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ClientProvider } from '../../providers/client/client';
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AppstorageProvider } from '../../providers/appstorage/appstorage';
+import { UiProvider } from '../../providers/ui';
 
 @IonicPage()
 @Component({
@@ -19,7 +14,7 @@ export class LoginPage {
 
   forgetPasswordPage:any = 'ForgetPasswordPage';
   loginData = {email: '', password: ''};
-  constructor(public navCtrl: NavController, public navParams: NavParams, private clientProvider: ClientProvider) {
+  constructor(public navCtrl: NavController,private uiProvider: UiProvider,private appStorage: AppstorageProvider, public navParams: NavParams, private clientProvider: ClientProvider) {
   }
 
   ionViewDidLoad() {
@@ -40,12 +35,15 @@ export class LoginPage {
         .subscribe(result=> {
           console.info({response:result});
           if (result.success) {
-            this.navCtrl.setRoot('HomePage');
-
-            // Nav To Home Page !
+            this.appStorage.saveUser(result.user)
+              .then(()=>{
+                this.navCtrl.setRoot('BasicTabsPage');
+              })
           } else {
-            console.warn('Wrong Email Or Password');
+            this.uiProvider.showToast("Email & Password are not Correct");
           }
+        }, err => {
+          this.uiProvider.showToast(err.error.message);
         })
     }
   }

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { LoginPage } from './login';
 import { ClientProvider } from '../../providers/client/client';
+import { AppstorageProvider } from '../../providers/appstorage/appstorage';
+import { UiProvider } from '../../providers/ui';
 
 @NgModule({
   declarations: [
@@ -11,7 +13,9 @@ import { ClientProvider } from '../../providers/client/client';
     IonicPageModule.forChild(LoginPage),
   ],
   providers: [
-    ClientProvider
+    ClientProvider,
+    AppstorageProvider,
+    UiProvider
   ]
 })
 export class LoginPageModule {}
