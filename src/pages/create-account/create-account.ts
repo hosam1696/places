@@ -59,7 +59,7 @@ export class CreateAccountPage {
   // }
   onRegister() {
     if (this.registerData.email&&this.registerData.password&&this.registerData.name&&this.registerData.address&&this.registerData.password_confirmation&&this.registerData.phone) {
-      this.clientProvider.login(this.registerData)
+      this.clientProvider.register(this.registerData)
         .subscribe(result=> {
           console.info({response:result});
           if (result.success) {
