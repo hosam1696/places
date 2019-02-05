@@ -16,49 +16,30 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div text-center class="loader" *ngIf="!mainData">
+    <ion-spinner></ion-spinner>
+  </div>
 
-    <ion-item class="mTB10" (click)="goDetails()">
+  <ion-list *ngIf="mainData">
+    <ion-item class="mTB10" *ngFor="let add of mainData.recommend" (click)="goDetails({details:add})">
       <ion-avatar item-start>
         <img src="assets/imgs/img1.jpeg">
         <div class="contImg"><i class="fa fa-camera" aria-hidden="true"></i> 10</div>
 
       </ion-avatar>
       <h3 class="bBold">
-        15,400,000 EGP
+        {{add.cost}} EGP
         <!-- <ion-icon name="md-heart" color="danger" class="fRight"></ion-icon> -->
       </h3>
       <h4>
         <span> Villa </span>
 
-        <span class="bedSpan"> <i class="fa fa-bed" aria-hidden="true"></i> 4 </span>
+        <span class="bedSpan"> <i class="fa fa-bed" aria-hidden="true"></i> {{add.room}} </span>
 
-        <span> <i class="fa fa-bath" aria-hidden="true"></i> 2 </span>
-
-      </h4>
-      <p>
-        I've had a pretty messed up day.
-      </p>
-      <p>
-        I've had a pretty messed up day
-      </p>
-    </ion-item>
-
-    <ion-item class="mTB10" (click)="goDetails()">
-      <ion-avatar item-start>
-        <img src="assets/imgs/img2.jpg">
-        <div class="contImg"><i class="fa fa-camera" aria-hidden="true"></i> 10</div>
-      </ion-avatar>
-      <h3 class="bBold">
-        15,400,000 EGP
-        <ion-icon name="md-heart" color="danger" class="fRight"></ion-icon>
-      </h3>
-      <h4>
-        <span> Villa </span>
-
-        <span class="bedSpan"> <i class="fa fa-bed" aria-hidden="true"></i> 4 </span>
-
-        <span> <i class="fa fa-bath" aria-hidden="true"></i> 2 </span>
+        <span> <i class="fa fa-bath" aria-hidden="true"></i> {{add.bathroom}} </span>
 
       </h4>
       <p>
@@ -68,243 +49,6 @@
         I've had a pretty messed up day
       </p>
     </ion-item>
-
-
-    <ion-item class="mTB10" (click)="goDetails()">
-      <ion-avatar item-start>
-        <img src="assets/imgs/img3.jpg">
-        <div class="contImg"><i class="fa fa-camera" aria-hidden="true"></i> 10</div>
-
-      </ion-avatar>
-      <h3 class="bBold">
-        15,400,000 EGP
-        <!-- <ion-icon name="md-heart" color="danger" class="fRight"></ion-icon> -->
-      </h3>
-      <h4>
-        <span> Villa </span>
-
-        <span class="bedSpan"> <i class="fa fa-bed" aria-hidden="true"></i> 4 </span>
-
-        <span> <i class="fa fa-bath" aria-hidden="true"></i> 2 </span>
-
-      </h4>
-      <p>
-        I've had a pretty messed up day.
-      </p>
-      <p>
-        I've had a pretty messed up day
-      </p>
-    </ion-item>
-
-    <ion-item class="mTB10" (click)="goDetails()">
-      <ion-avatar item-start>
-        <img src="assets/imgs/img3.jpg">
-        <div class="contImg"><i class="fa fa-camera" aria-hidden="true"></i> 10</div>
-
-      </ion-avatar>
-      <h3 class="bBold">
-        15,400,000 EGP
-        <!-- <ion-icon name="md-heart" color="danger" class="fRight"></ion-icon> -->
-      </h3>
-      <h4>
-        <span> Villa </span>
-
-        <span class="bedSpan"> <i class="fa fa-bed" aria-hidden="true"></i> 4 </span>
-
-        <span> <i class="fa fa-bath" aria-hidden="true"></i> 2 </span>
-
-      </h4>
-      <p>
-        I've had a pretty messed up day.
-      </p>
-      <p>
-        I've had a pretty messed up day
-      </p>
-    </ion-item>
-
-
-    <ion-item class="mTB10" (click)="goDetails()">
-      <ion-avatar item-start>
-        <img src="assets/imgs/img3.jpg">
-        <div class="contImg"><i class="fa fa-camera" aria-hidden="true"></i> 10</div>
-
-      </ion-avatar>
-      <h3 class="bBold">
-        15,400,000 EGP
-        <!-- <ion-icon name="md-heart" color="danger" class="fRight"></ion-icon> -->
-      </h3>
-      <h4>
-        <span> Villa </span>
-
-        <span class="bedSpan"> <i class="fa fa-bed" aria-hidden="true"></i> 4 </span>
-
-        <span> <i class="fa fa-bath" aria-hidden="true"></i> 2 </span>
-
-      </h4>
-      <p>
-        I've had a pretty messed up day.
-      </p>
-      <p>
-        I've had a pretty messed up day
-      </p>
-    </ion-item>
-
-
-
-    <ion-item class="mTB10" (click)="goDetails()">
-      <ion-avatar item-start>
-        <img src="assets/imgs/img2.jpg">
-        <div class="contImg"><i class="fa fa-camera" aria-hidden="true"></i> 10</div>
-
-      </ion-avatar>
-      <h3 class="bBold">
-        15,400,000 EGP
-        <ion-icon name="md-heart" color="danger" class="fRight"></ion-icon>
-      </h3>
-      <h4>
-        <span> Villa </span>
-
-        <span class="bedSpan"> <i class="fa fa-bed" aria-hidden="true"></i> 4 </span>
-
-        <span> <i class="fa fa-bath" aria-hidden="true"></i> 2 </span>
-
-      </h4>
-      <p>
-        I've had a pretty messed up day.
-      </p>
-      <p>
-        I've had a pretty messed up day
-      </p>
-    </ion-item>
-
-    <ion-item class="mTB10" (click)="goDetails()">
-      <ion-avatar item-start>
-        <img src="assets/imgs/img2.jpg">
-        <div class="contImg"><i class="fa fa-camera" aria-hidden="true"></i> 10</div>
-
-      </ion-avatar>
-      <h3 class="bBold">
-        15,400,000 EGP
-        <ion-icon name="md-heart" color="danger" class="fRight"></ion-icon>
-      </h3>
-      <h4>
-        <span> Villa </span>
-
-        <span class="bedSpan"> <i class="fa fa-bed" aria-hidden="true"></i> 4 </span>
-
-        <span> <i class="fa fa-bath" aria-hidden="true"></i> 2 </span>
-
-      </h4>
-      <p>
-        I've had a pretty messed up day.
-      </p>
-      <p>
-        I've had a pretty messed up day
-      </p>
-    </ion-item>
-
-
-    <ion-item class="mTB10" (click)="goDetails()">
-      <ion-avatar item-start>
-        <img src="assets/imgs/img1.jpeg">
-      </ion-avatar>
-      <h3 class="bBold">
-        15,400,000 EGP
-        <!-- <ion-icon name="md-heart" color="danger" class="fRight"></ion-icon> -->
-      </h3>
-      <h4>
-        <span> Villa </span>
-
-        <span class="bedSpan"> <i class="fa fa-bed" aria-hidden="true"></i> 4 </span>
-
-        <span> <i class="fa fa-bath" aria-hidden="true"></i> 2 </span>
-
-      </h4>
-      <p>
-        I've had a pretty messed up day.
-      </p>
-      <p>
-        I've had a pretty messed up day
-      </p>
-    </ion-item>
-
-    <ion-item class="mTB10" (click)="goDetails()">
-      <ion-avatar item-start>
-        <img src="assets/imgs/img1.jpeg">
-      </ion-avatar>
-      <h3 class="bBold">
-        15,400,000 EGP
-        <!-- <ion-icon name="md-heart" color="danger" class="fRight"></ion-icon> -->
-      </h3>
-      <h4>
-        <span> Villa </span>
-
-        <span class="bedSpan"> <i class="fa fa-bed" aria-hidden="true"></i> 4 </span>
-
-        <span> <i class="fa fa-bath" aria-hidden="true"></i> 2 </span>
-
-      </h4>
-      <p>
-        I've had a pretty messed up day.
-      </p>
-      <p>
-        I've had a pretty messed up day
-      </p>
-    </ion-item>
-
-    <ion-item class="mTB10" (click)="goDetails()">
-      <ion-avatar item-start>
-        <img src="assets/imgs/img1.jpeg">
-      </ion-avatar>
-      <h3 class="bBold">
-        15,400,000 EGP
-        <!-- <ion-icon name="md-heart" color="danger" class="fRight"></ion-icon> -->
-      </h3>
-      <h4>
-        <span> Villa </span>
-
-        <span class="bedSpan"> <i class="fa fa-bed" aria-hidden="true"></i> 4 </span>
-
-        <span> <i class="fa fa-bath" aria-hidden="true"></i> 2 </span>
-
-      </h4>
-      <p>
-        I've had a pretty messed up day.
-      </p>
-      <p>
-        I've had a pretty messed up day
-      </p>
-    </ion-item>
-
-
-    <ion-item class="mTB10" (click)="goDetails()">
-      <ion-avatar item-start>
-        <img src="assets/imgs/img3.jpg">
-      </ion-avatar>
-      <h3 class="bBold">
-        15,400,000 EGP
-        <!-- <ion-icon name="md-heart" color="danger" class="fRight"></ion-icon> -->
-      </h3>
-      <h4>
-        <span> Villa </span>
-
-        <span class="bedSpan"> <i class="fa fa-bed" aria-hidden="true"></i> 4 </span>
-
-        <span> <i class="fa fa-bath" aria-hidden="true"></i> 2 </span>
-
-      </h4>
-      <p>
-        I've had a pretty messed up day.
-      </p>
-      <p>
-        I've had a pretty messed up day
-      </p>
-    </ion-item>
-
-
-
-
-
   </ion-list>
 </ion-content>
 

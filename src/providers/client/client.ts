@@ -23,4 +23,9 @@ export class ClientProvider {
   getClientProfile (clientProfile){
     return this.api.get('clientProfile',clientProfile);
   }
+
+  fetchProperties(propertiesData) {
+    return this.api.post('properties', propertiesData)
+  }
+
 }

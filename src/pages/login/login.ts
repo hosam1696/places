@@ -14,6 +14,7 @@ export class LoginPage {
 
   forgetPasswordPage:any = 'ForgetPasswordPage';
   loginData = {email: '', password: ''};
+  loginPressed: boolean = false;
   constructor(public navCtrl: NavController,private uiProvider: UiProvider,private appStorage: AppstorageProvider, public navParams: NavParams, private clientProvider: ClientProvider) {
   }
 
@@ -31,10 +32,12 @@ export class LoginPage {
 
   onLogin() {
     if (this.loginData.email&&this.loginData.password) {
+      this.loginPressed = true;
       this.clientProvider.login(this.loginData)
         .subscribe(result=> {
           console.info({response:result});
           if (result.success) {
+            this.loginPressed = false;
             this.appStorage.saveUser(result.user)
               .then(()=>{
                 this.navCtrl.setRoot('BasicTabsPage');
@@ -44,7 +47,12 @@ export class LoginPage {
           }
         }, err => {
           this.uiProvider.showToast(err.error.message);
+          this.loginPressed = false;
         })
     }
+  }
+
+  goTo(page: string) {
+    this.navCtrl.push(page);
   }
 }

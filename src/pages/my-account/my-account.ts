@@ -1,8 +1,8 @@
-import { CreateAccountPage } from './../create-account/create-account';
-import { LoginPage } from './../login/login';
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App, ModalController } from 'ionic-angular';
-import { AppstorageProvider } from '../../providers/appstorage/appstorage';
+import {CreateAccountPage} from './../create-account/create-account';
+import {LoginPage} from './../login/login';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams, App, ModalController, Events} from 'ionic-angular';
+import {AppstorageProvider} from '../../providers/appstorage/appstorage';
 
 /**
  * Generated class for the MyAccountPage page.
@@ -20,21 +20,23 @@ export class MyAccountPage {
 
   loginPage: any = 'LoginPage';
   createAccountPage: any = 'CreateAccountPage';
-  userData:any;
+  userData: any;
   notifications: boolean = false;
-  constructor(public navCtrl: NavController,
-     public navParams: NavParams,
-     public app: App,
-      public modalCtrl: ModalController,
-      private appStorage: AppstorageProvider
 
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public app: App,
+              public modalCtrl: ModalController,
+              private events: Events,
+              private appStorage: AppstorageProvider
   ) {
   }
 
   ionViewWillEnter() {
     this.appStorage.getSavedUser()
-      .then(userData=>this.userData = userData);
+      .then(userData => this.userData = userData);
   }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyAccountPage');
   }
@@ -64,5 +66,12 @@ export class MyAccountPage {
       console.log(data);
     });
     sortModal.present();
+  }
+
+  logOut() {
+    this.appStorage.deleteUserData()
+      .then(() => {
+        this.events.publish('set:root', 'LoginPage')
+      })
   }
 }

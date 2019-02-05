@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController , ActionSheetController , App } from 'ionic-angular';
+import {NavController, ModalController, App, IonicPage} from 'ionic-angular';
+import {AppstorageProvider} from "../../providers/appstorage/appstorage";
+import {GlobalProvider} from "../../providers/global/global";
 
 @IonicPage()
 @Component({
@@ -10,19 +12,35 @@ export class HomePage {
 
   viewSelected: string = 'list';
   sortBySelected: string = 'featured';
-
+  userData: any;
+  mainData:any;
   constructor(
     public navCtrl: NavController,
-    public actionSheetCtrl: ActionSheetController ,
     public app: App,
     public modalCtrl: ModalController,
+    private globalProvider: GlobalProvider,
+    private appStorage: AppstorageProvider
     ) {
 
   }
 
-  goDetails(){
+  async ionViewDidLoad() {
+    this.userData = await this.appStorage.getSavedUser();
+    this.globalProvider.getMain()
+      .subscribe(
+        response => {
+          console.log({response});
+          this.mainData = response;
+        },
+          err => {
+          console.warn({err});
+          }
+      )
+  }
+
+  goDetails(params){
     //this.navCtrl.setRoot('DetailsPage');
-    this.app.getRootNav().setRoot('DetailsPage');
+    this.app.getRootNav().setRoot('DetailsPage', params);
   }
 
   autoSearchPage(){
@@ -65,4 +83,10 @@ export class HomePage {
     ViewModal.present();
   }
 
+  doRefresh(event) {
+    this.ionViewDidLoad();
+    setTimeout(()=>{
+      event.complete();
+    }, 1000)
+  }
 }

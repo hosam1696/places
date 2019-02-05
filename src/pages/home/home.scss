@@ -1,4 +1,11 @@
 page-home {
 
-    
+    ion-content {
+      .loader {
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
 }

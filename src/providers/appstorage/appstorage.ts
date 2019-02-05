@@ -15,5 +15,8 @@ export class AppstorageProvider {
   saveUser(userData) {
     return this.storage.set('places:saved:user', userData)
   }
+  deleteUserData() {
+    return this.storage.remove('places:saved:user')
+  }
 
 }

@@ -23,14 +23,17 @@
 
     <ion-item>
       <ion-label style="margin: 13px 8px 13px 0 !important" color="primary" floating>Password</ion-label>
-      <ion-input type="password" [(ngModel)]="loginData.password"></ion-input>
+      <ion-input type="password"  [(ngModel)]="loginData.password"></ion-input>
     </ion-item>
     <div class="forget" text-right (click)="goPage(forgetPasswordPage)">
       Forget password?
     </div>
     <br>
-    <button class="searchBtn2" full ion-button (click)="onLogin()">Log in</button>
-
+    <button class="searchBtn2" full ion-button [disabled]="loginPressed" (click)="onLogin()">Log in</button>
+    <p text-center>
+      You Do not have an Account?
+      <button ion-button clear (click)="goTo('CreateAccountPage')">Create An Account</button>
+    </p>
   </ion-list>
 
 

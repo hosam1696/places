@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, App } from 'ionic-angular';
+import {AppstorageProvider} from "../../providers/appstorage/appstorage";
+import {GlobalProvider} from "../../providers/global/global";
 
-/**
- * Generated class for the GalleryPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -14,18 +10,31 @@ import { IonicPage, NavController, NavParams, ModalController, App } from 'ionic
   templateUrl: 'gallery.html',
 })
 export class GalleryPage {
+  private userData: any;
+  private mainData: any;
 
   constructor(
     public navCtrl: NavController, 
     public modalCtrl: ModalController,
     public app: App,
+    private appStorage: AppstorageProvider,
+    private globalProvider: GlobalProvider,
     public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad GalleryPage');
+  async ionViewDidLoad() {
+    this.userData = await this.appStorage.getSavedUser();
+    this.globalProvider.getMain()
+      .subscribe(
+        response => {
+          console.log({response});
+          this.mainData = response;
+        },
+        err => {
+          console.warn({err});
+        }
+      )
   }
-
   
   goDetails(){
     //this.navCtrl.push('DetailsPage');
@@ -60,5 +69,12 @@ export class GalleryPage {
       console.log(data);
     });
     filterModal.present();
+  }
+
+  doRefresh(event) {
+    this.ionViewDidLoad();
+    setTimeout(()=>{
+      event.complete();
+    }, 1000)
   }
 }
