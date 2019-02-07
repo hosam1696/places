@@ -1,24 +1,45 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController, ActionSheetController, App } from 'ionic-angular';
+import {  ActionSheetController} from 'ionic-angular';
+import {NavController, ModalController, App, IonicPage} from 'ionic-angular';
+import {AppstorageProvider} from "../../providers/appstorage/appstorage";
+import {GlobalProvider} from "../../providers/global/global";
 
 
-@IonicPage()
 @Component({
   selector: 'page-saved-list',
   templateUrl: 'saved-list.html',
 })
 export class SavedListPage {
-
+  sortBySelected: string = 'featured';
+  userData: any;
+  favoriteData:any;
 
   viewSelected: string = 'list';
 
+  
   constructor(
     public navCtrl: NavController,
-    public actionSheetCtrl: ActionSheetController ,
     public app: App,
     public modalCtrl: ModalController,
+    private globalProvider: GlobalProvider,
+    public actionSheetCtrl: ActionSheetController ,
+
+    private appStorage: AppstorageProvider
     ) {
 
+  }
+  async ionViewDidLoad() {
+    this.userData = await this.appStorage.getSavedUser();
+    this.globalProvider.getFavouriteList()
+      .subscribe(
+        response => {
+          console.log({response});
+          this.favoriteData = response;
+        },
+          err => {
+          console.warn({err});
+          }
+      )
   }
 
   goDetails(){

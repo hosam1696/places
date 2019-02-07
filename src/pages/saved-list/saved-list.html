@@ -16,24 +16,24 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <ion-list  *ngIf="favoriteData">
 
-    <ion-item class="mTB10" (click)="goDetails()">
+    <ion-item class="mTB10" *ngFor="let add of favoriteData.recommend" (click)="goDetails()">
       <ion-avatar item-start>
         <img src="assets/imgs/img1.jpeg">
         <div class="contImg"><i class="fa fa-camera" aria-hidden="true"></i> 10</div>
 
       </ion-avatar>
       <h3 class="bBold">
-        15,400,000 EGP
+        {{add.cost}} EGP
         <!-- <ion-icon name="md-heart" color="danger" class="fRight"></ion-icon> -->
       </h3>
       <h4>
         <span> Villa </span>
 
-        <span class="bedSpan"> <i class="fa fa-bed" aria-hidden="true"></i> 4 </span>
+        <span class="bedSpan"> <i class="fa fa-bed" aria-hidden="true"></i> {{add.room}} </span>
 
-        <span> <i class="fa fa-bath" aria-hidden="true"></i> 2 </span>
+        <span> <i class="fa fa-bath" aria-hidden="true"></i> {{add.bathroom}}</span>
 
       </h4>
       <p>
