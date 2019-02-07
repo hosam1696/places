@@ -1,5 +1,9 @@
+
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import {  ActionSheetController} from 'ionic-angular';
+import {NavController, ModalController, App, IonicPage} from 'ionic-angular';
+import {AppstorageProvider} from "../../providers/appstorage/appstorage";
+import {GlobalProvider} from "../../providers/global/global";
 
 /**
  * Generated class for the SavedPage page.
@@ -14,12 +18,35 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
   templateUrl: 'saved.html',
 })
 export class SavedPage {
+  sortBySelected: string = 'featured';
+  userData: any;
+  favoriteData:any;
+
+  viewSelected: string = 'list';
 
   constructor(
     public navCtrl: NavController,
+    public app: App,
     public modalCtrl: ModalController,
+    private globalProvider: GlobalProvider,
+    public actionSheetCtrl: ActionSheetController ,
+
+    private appStorage: AppstorageProvider
     ) {
 
+  }
+  async ionViewDidLoad() {
+    this.userData = await this.appStorage.getSavedUser();
+    this.globalProvider.getFavouriteList()
+      .subscribe(
+        response => {
+          console.log({response});
+          this.favoriteData = response;
+        },
+          err => {
+          console.warn({err});
+          }
+      )
   }
 
   autoSearchPage(){

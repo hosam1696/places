@@ -18,6 +18,9 @@ export class GlobalProvider {
   getBlog (){
     return this.api.get('blog');
   }
+  getSearch (){
+    return this.api.get('property/search');
+  }
 
   getFavouriteList(){
     return this.api.get('favorite-list');

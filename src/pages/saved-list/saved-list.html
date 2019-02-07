@@ -18,7 +18,7 @@
 <ion-content>
   <ion-list  *ngIf="favoriteData">
 
-    <ion-item class="mTB10" *ngFor="let add of favoriteData.recommend" (click)="goDetails()">
+    <ion-item class="mTB10" *ngFor="let add of favoriteData.recommend" (click)="goDetails({details:add})">
       <ion-avatar item-start>
         <img src="assets/imgs/img1.jpeg">
         <div class="contImg"><i class="fa fa-camera" aria-hidden="true"></i> 10</div>
