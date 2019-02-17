@@ -25,9 +25,9 @@
 
 <ion-content>
 
-  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <form #f="ngForm" (ngSubmit)="sendPostRequest()">
     <ion-grid>
-      <ion-row radio-group [(ngModel)]="type1" name="type" class="custRow2">
+      <ion-row radio-group [(ngModel)]="propertystat" name="propertystat" class="custRow2">
 
         <ion-col col-6>
           <div class="radioCust">
@@ -89,7 +89,7 @@
 
         <ion-col col-6>
           <span>Max. area</span><br>
-          <ion-select class="brdB" [(ngModel)]="type4" name="type4" placeholder="None" interface="popover">
+          <ion-select class="brdB" [(ngModel)]="maxarea" name="maxarea" placeholder="None" interface="popover">
             <!-- <ion-option *ngFor=" let country of countries" value="{{country.id}}"> {{country.name}} </ion-option> -->
             <ion-option value="all"> None</ion-option>
             <ion-option value="1"> 1</ion-option>
@@ -104,7 +104,7 @@
       <ion-row>
         <ion-col col-6>
           <span>Min. bedrooms</span><br>
-          <ion-select class="brdB" [(ngModel)]="type5" name="type5" placeholder="None" interface="popover">
+          <ion-select class="brdB" [(ngModel)]="minbed" name="minbed" placeholder="None" interface="popover">
             <!-- <ion-option *ngFor=" let country of countries" value="{{country.id}}"> {{country.name}} </ion-option> -->
             <ion-option value="all"> None</ion-option>
             <ion-option value="1"> 1</ion-option>
@@ -115,7 +115,7 @@
 
         <ion-col col-6>
           <span>Max. bedrooms</span><br>
-          <ion-select class="brdB" [(ngModel)]="type6" name="type6" placeholder="None" interface="popover">
+          <ion-select class="brdB" [(ngModel)]="maxbed" name="maxbed" placeholder="None" interface="popover">
             <!-- <ion-option *ngFor=" let country of countries" value="{{country.id}}"> {{country.name}} </ion-option> -->
             <ion-option value="all"> None</ion-option>
             <ion-option value="1"> 1</ion-option>
@@ -130,7 +130,7 @@
       <ion-row>
         <ion-col col-6>
           <span>Min. price</span><br>
-          <ion-select class="brdB" [(ngModel)]="type7" name="type7" placeholder="None" interface="popover">
+          <ion-select class="brdB" [(ngModel)]="minprice" name="minprice" placeholder="None" interface="popover">
             <!-- <ion-option *ngFor=" let country of countries" value="{{country.id}}"> {{country.name}} </ion-option> -->
             <ion-option value="all"> None</ion-option>
             <ion-option value="1"> 1</ion-option>
@@ -141,7 +141,7 @@
 
         <ion-col col-6>
           <span>Max. price</span><br>
-          <ion-select class="brdB" [(ngModel)]="type8" name="type8" placeholder="None" interface="popover">
+          <ion-select class="brdB" [(ngModel)]="maxprice" name="maxprice" placeholder="None" interface="popover">
             <!-- <ion-option *ngFor=" let country of countries" value="{{country.id}}"> {{country.name}} </ion-option> -->
             <ion-option value="all"> None</ion-option>
             <ion-option value="1"> 1</ion-option>

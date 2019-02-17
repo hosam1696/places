@@ -16,24 +16,26 @@
 </ion-header>
 
 <ion-content>
-  <ion-list  *ngIf="favoriteData">
+  <ion-list *ngIf="favoriteData">
 
-    <ion-item class="mTB10" *ngFor="let add of favoriteData.recommend" (click)="goDetails({details:add})">
+    <ion-item class="mTB10" (click)="goDetails({details:add})">
       <ion-avatar item-start>
-        <img src="assets/imgs/img1.jpeg">
+        <img src="../../assets/imgs/aa.PNG">
+        <!-- <img [src]="'http://tamleek-eg.com/tamlek/'+this.favoriteData..favorite_list[0].path" > -->
+
         <div class="contImg"><i class="fa fa-camera" aria-hidden="true"></i> 10</div>
 
       </ion-avatar>
       <h3 class="bBold">
-        {{add.cost}} EGP
+        {{this.favoriteData.favorite_list[0].cost}} EGP
         <!-- <ion-icon name="md-heart" color="danger" class="fRight"></ion-icon> -->
       </h3>
       <h4>
         <span> Villa </span>
 
-        <span class="bedSpan"> <i class="fa fa-bed" aria-hidden="true"></i> {{add.room}} </span>
+        <span class="bedSpan"> <i class="fa fa-bed" aria-hidden="true"></i> {{this.favoriteData.favorite_list[0].room}} </span>
 
-        <span> <i class="fa fa-bath" aria-hidden="true"></i> {{add.bathroom}}</span>
+        <span> <i class="fa fa-bath" aria-hidden="true"></i> {{this.favoriteData.favorite_list[0].bathroom}}</span>
 
       </h4>
       <p>

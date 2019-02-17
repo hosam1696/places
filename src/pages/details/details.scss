@@ -1,7 +1,6 @@
 page-details {
   ion-footer{
     &.footer-md::before {
-      //background-image: none;
     }
     .grid{
       padding: 0px!important;
@@ -82,8 +81,12 @@ page-details {
     }
 
     .fav {
-      color: #f53d3d !important;
+      // color: #f53d3d !important;
       font-size: 16px !important;
+      color:#fff;
+    }
+    .fav:hover{
+      color:#f53d3d !important;
     }
 
     .unfav {
@@ -94,6 +97,7 @@ page-details {
     .share {
       color: black !important;
       font-size: 16px !important;
+
     }
   }
 

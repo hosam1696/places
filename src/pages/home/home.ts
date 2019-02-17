@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {NavController, ModalController, App, IonicPage} from 'ionic-angular';
 import {AppstorageProvider} from "../../providers/appstorage/appstorage";
 import {GlobalProvider} from "../../providers/global/global";
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -13,15 +14,16 @@ export class HomePage {
   viewSelected: string = 'list';
   sortBySelected: string = 'featured';
   userData: any;
-  mainData:any;
+  mainData:any=[];
   constructor(
     public navCtrl: NavController,
     public app: App,
     public modalCtrl: ModalController,
     private globalProvider: GlobalProvider,
-    private appStorage: AppstorageProvider
+    private appStorage: AppstorageProvider,
+    public Storage:Storage
     ) {
-
+this.mainData=[];
   }
 
   async ionViewDidLoad() {
@@ -29,8 +31,10 @@ export class HomePage {
     this.globalProvider.getMain()
       .subscribe(
         response => {
-          console.log({response});
+        //  console.log(response.propertytypes);
           this.mainData = response;
+          this.Storage.set('prototypes',this.mainData)
+          console.log( 'http://tamleek-eg.com/tamlek/api/'+this.mainData.recommend[0].images[0].path)
         },
           err => {
           console.warn({err});

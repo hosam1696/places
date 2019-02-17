@@ -3,8 +3,9 @@ import {  ActionSheetController} from 'ionic-angular';
 import {NavController, ModalController, App, IonicPage} from 'ionic-angular';
 import {AppstorageProvider} from "../../providers/appstorage/appstorage";
 import {GlobalProvider} from "../../providers/global/global";
+import { Storage } from '@ionic/storage';
 
-
+@IonicPage()
 @Component({
   selector: 'page-saved-list',
   templateUrl: 'saved-list.html',
@@ -16,25 +17,37 @@ export class SavedListPage {
 
   viewSelected: string = 'list';
 
-  
+  usertoken:any;
   constructor(
     public navCtrl: NavController,
     public app: App,
     public modalCtrl: ModalController,
     private globalProvider: GlobalProvider,
     public actionSheetCtrl: ActionSheetController ,
-
+    private storage: Storage,
     private appStorage: AppstorageProvider
     ) {
+     this.usertoken= this.storage.get('token')
+     console.log(" token is ");
+
+     console.log( this.usertoken);
+
 
   }
   async ionViewDidLoad() {
     this.userData = await this.appStorage.getSavedUser();
-    this.globalProvider.getFavouriteList()
-      .subscribe(
+console.log(this.userData.api_token)
+  //  this.userData = await this.appStorage.getSavedUser();
+    
+    this.globalProvider.getFavouriteList(this.userData.api_token)
+      .then(
         response => {
           console.log({response});
           this.favoriteData = response;
+          console.log('favoritedata',this.favoriteData.favorite_list[0].cost);
+          console.log('favoritedata',this.favoriteData.favorite_list[0].room);
+          console.log('favoritedata',this.favoriteData.favorite_list[0].bathroom);
+
         },
           err => {
           console.warn({err});

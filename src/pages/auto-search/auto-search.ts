@@ -1,10 +1,10 @@
 import { Geolocation } from '@ionic-native/geolocation';
 
-import { NavController, NavParams } from 'ionic-angular';
+import { IonicPage,NavController, NavParams } from 'ionic-angular';
 import { Component, NgZone } from '@angular/core';
 import { ViewController, MenuController } from 'ionic-angular';
 declare var google;
-
+@IonicPage()
 @Component({
   selector: 'page-auto-search',
   templateUrl: 'auto-search.html',

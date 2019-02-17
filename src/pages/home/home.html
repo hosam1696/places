@@ -24,30 +24,36 @@
   </div>
 
   <ion-list *ngIf="mainData">
-    <ion-item class="mTB10" *ngFor="let add of mainData.recommend" (click)="goDetails({details:add})">
+    <ion-item class="mTB10"  (click)="goDetails({details:add})" *ngFor="let add of mainData.recommend;let i=index">
+
       <ion-avatar item-start>
-        <img src="assets/imgs/img1.jpeg">
-        <div class="contImg"><i class="fa fa-camera" aria-hidden="true"></i> 10</div>
+
+        <img [src]="'http://tamleek-eg.com/tamlek/'+add.images[0].path" >
+                <div class="contImg"><i class="fa fa-camera" aria-hidden="true"></i> 10</div>
 
       </ion-avatar>
-      <h3 class="bBold">
-        {{add.cost}} EGP
-        <!-- <ion-icon name="md-heart" color="danger" class="fRight"></ion-icon> -->
-      </h3>
-      <h4>
-        <span> Villa </span>
+      <div >
+          <h3 class="bBold">
+              {{add.cost}} EGP
+              <!-- <ion-icon name="md-heart" color="danger" class="fRight"></ion-icon> -->
+            </h3>
+            <h4>
+              <span> Villa </span>
+      
+              <span class="bedSpan"> <i class="fa fa-bed" aria-hidden="true"></i> {{add.room}} </span>
+      
+              <span> <i class="fa fa-bath" aria-hidden="true"></i> {{add.bathroom}} </span>
+      
+            </h4>
+            <p>
+              I've had a pretty messed up day.
+            </p>
+            <p>
+              I've had a pretty messed up day
+            </p>
+        </div>
 
-        <span class="bedSpan"> <i class="fa fa-bed" aria-hidden="true"></i> {{add.room}} </span>
-
-        <span> <i class="fa fa-bath" aria-hidden="true"></i> {{add.bathroom}} </span>
-
-      </h4>
-      <p>
-        I've had a pretty messed up day.
-      </p>
-      <p>
-        I've had a pretty messed up day
-      </p>
+     
     </ion-item>
   </ion-list>
 </ion-content>

@@ -37,16 +37,7 @@ export class SavedPage {
   }
   async ionViewDidLoad() {
     this.userData = await this.appStorage.getSavedUser();
-    this.globalProvider.getFavouriteList()
-      .subscribe(
-        response => {
-          console.log({response});
-          this.favoriteData = response;
-        },
-          err => {
-          console.warn({err});
-          }
-      )
+
   }
 
   autoSearchPage(){

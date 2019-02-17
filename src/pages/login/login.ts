@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ClientProvider } from '../../providers/client/client';
 import { AppstorageProvider } from '../../providers/appstorage/appstorage';
 import { UiProvider } from '../../providers/ui';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -15,7 +16,8 @@ export class LoginPage {
   forgetPasswordPage:any = 'ForgetPasswordPage';
   loginData = {email: '', password: ''};
   loginPressed: boolean = false;
-  constructor(public navCtrl: NavController,private uiProvider: UiProvider,private appStorage: AppstorageProvider, public navParams: NavParams, private clientProvider: ClientProvider) {
+  constructor(public navCtrl: NavController,private uiProvider: UiProvider, private storage: Storage,
+    private appStorage: AppstorageProvider, public navParams: NavParams, private clientProvider: ClientProvider) {
   }
 
   ionViewDidLoad() {
@@ -37,8 +39,14 @@ export class LoginPage {
         .subscribe(result=> {
           console.info({response:result});
           if (result.success) {
+            this.storage.set('token', result.user.api_token).then((token) => {
+              console.log("token is ")
+              console.log(token)
+            })
             this.loginPressed = false;
+         
             this.appStorage.saveUser(result.user)
+            this.appStorage.saveToken(result.user.api_token)
               .then(()=>{
                 this.navCtrl.setRoot('BasicTabsPage');
               })
@@ -51,6 +59,7 @@ export class LoginPage {
         })
     }
   }
+  
 
   goTo(page: string) {
     this.navCtrl.push(page);

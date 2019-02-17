@@ -14,6 +14,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { GlobalProvider } from '../providers/global/global';
 import { ClientProvider } from '../providers/client/client';
 import { AppstorageProvider } from '../providers/appstorage/appstorage';
+import { ToastProvider } from '../providers/toast/toast';
+import { LoadingProvider } from '../providers/loading/loading';
+import { HttpProvider } from '../providers/http/http';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { AppstorageProvider } from '../providers/appstorage/appstorage';
     ApiProvider,
     GlobalProvider,
     ClientProvider,
-    AppstorageProvider
+    AppstorageProvider,
+    ToastProvider,
+    LoadingProvider,
+    HttpProvider,
   ]
 })
 export class AppModule { }

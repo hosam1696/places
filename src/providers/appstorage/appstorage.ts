@@ -15,6 +15,14 @@ export class AppstorageProvider {
   saveUser(userData) {
     return this.storage.set('places:saved:user', userData)
   }
+  getToken(){
+    return this.storage.get('token')
+
+  }
+  saveToken(userToken){
+    return this.storage.set('token',userToken)
+
+  }
   deleteUserData() {
     return this.storage.remove('places:saved:user')
   }

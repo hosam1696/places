@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Form, ViewController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
-
+import {
+  HttpClient,
+  HttpParams
+} from '@angular/common/http';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -9,7 +13,14 @@ import { NgForm } from '@angular/forms';
   templateUrl: 'filters.html',
 })
 export class FiltersPage {
-
+  serchdetails:any;
+  commercial_type:string='3';
+  propertystat:string='sale';
+  minprice:string='None';
+  maxprice:string='None';
+  minbed:string='None';
+  maxarea:string='None'
+  maxbed:string='None';
   type1: string = 'sale';
   type2: string = 'All' ;
   type3: string = 'None' ;
@@ -18,18 +29,47 @@ export class FiltersPage {
   type6: string = 'None' ;
   type7: string = 'None' ;
   type8: string = 'None' ;
-
+prototypes:any=[];
+proptypeid:any;
   typeMulti: any = [];
   constructor(
     public navCtrl: NavController, 
     public viewCtrl: ViewController,
+     public http: HttpClient,
+     public storage:Storage,
     public navParams: NavParams) {
+    
+
   }
 
-  ionViewDidLoad() {
+  async ionViewDidLoad() {
+    this.prototypes = await this.storage.get('prototypes')
+    this.proptypeid=this.prototypes.propertytypes[0].id
+    console.log(this.prototypes.propertytypes[0].id)
     console.log('ionViewDidLoad FiltersPage');
+
   }
 
+  sendPostRequest() {
+    let body = { 
+    'commercial_type': this.proptypeid,
+    'propertystat':this.propertystat,
+    'minprice':this.minprice,
+    'maxprice':this.maxprice,
+    'minbed':this.minbed,
+    'maxarea':this.maxarea,
+    'maxbed':this.maxbed,
+    'properitytype_id': this.proptypeid
+
+}
+    this.http.post("http://tamleek-eg.com/tamlek/api/property/search", body)
+      .subscribe( (data:any) => {
+        this.serchdetails=data;
+        console.log(data)
+        console.log(data['_body']);
+             }
+            )
+  }
 
   onSubmit(form: NgForm){
     console.log('form');

@@ -10,7 +10,7 @@ import { AppstorageProvider } from '../../providers/appstorage/appstorage';
   templateUrl: 'create-account.html',
 })
 export class CreateAccountPage {
-  registerData = { name: '', email: '', password: '', address: '', phone: '', password_confirmation: '' };
+  registerData = { name: '', email: '', password: '', address: '', phone: '' };
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -30,12 +30,18 @@ export class CreateAccountPage {
 
 
   onRegister() {
-    if (this.registerData.email && this.registerData.password && this.registerData.name && this.registerData.address && this.registerData.password_confirmation && this.registerData.phone) {
+    if (this.registerData.email && this.registerData.password && this.registerData.name && this.registerData.address && this.registerData.phone) {
       this.clientProvider.register(this.registerData)
         .subscribe(result => {
           console.info({ response: result });
-          if (result&&result.id) {
+          if (result.success) {
             this.appStorage.saveUser(result)
+            console.log("user token is")
+
+            console.log(result.user.api_token)
+
+            this.appStorage.saveUser(result.user)
+            this.appStorage.saveToken(result.user.api_token)
               .then(()=>{
                 this.navCtrl.setRoot('BasicTabsPage');
               });

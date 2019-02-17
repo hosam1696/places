@@ -3,18 +3,18 @@
   <ion-navbar hideBackButton>
     <ion-buttons class="tag" left>
 
-      <button icononly end>
-        <i class="fa fa-heart fav" aria-hidden="true"></i>
-      </button>
-      <button icononly end>
-        <i class="fa fa-share-alt share" aria-hidden="true"></i>
+      <button icononly end (click)="postlikedDetails()">
+          <i class="fa fa-heart fav" aria-hidden="true" ></i>
+        </button>
+      <button icononly end >
+        <i class="fa fa-share-alt share" aria-hidden="true" ></i>
       </button>
     </ion-buttons>
     <ion-buttons left start   (click)="goBack()">
 
         <button icononly ion-button >
             <i class="fa fa-chevron-left backBtn" aria-hidden="true"></i>
-        </button>
+                  </button>
       </ion-buttons>
     <ion-title> Deatils </ion-title>
    
@@ -42,23 +42,24 @@
         <!-- pager="true" -->
   <ion-slides autoplay="5000" loop="true" speed="500" class="slides" style="max-height:200px">
     <ion-slide>
-      <img src="assets/imgs/img1.jpeg">
-    </ion-slide>
+      <img [src]="'http://tamleek-eg.com/tamlek/'+this.propDetails.images[0].path" >    </ion-slide>
     <ion-slide>
-      <img src="assets/imgs/img2.jpg">
-    </ion-slide>
+      <img [src]="'http://tamleek-eg.com/tamlek/'+this.propDetails.images[1].path" >    </ion-slide>
     <ion-slide>
-      <img src="assets/imgs/img3.jpg">
+      <!-- <img src="assets/imgs/img3.jpg"> -->
+      <img [src]="'http://tamleek-eg.com/tamlek/'+this.propDetails.images[2].path" >
+
     </ion-slide>
   </ion-slides>
   <div class="contImg"><i class="fa fa-camera" aria-hidden="true"></i> 1 of 10</div>
 
-  <div padding>
+  <div  padding >
     <h4 style="margin: 0px 0px 5px 0px !important;">
-      15,400,000 EGP
+      {{this.propDetails.cost}} EGP
     </h4>
     <h5 style="margin: 0px 0px 5px 0px !important;">
-      Villa, 3 beds, 3baths
+      Villa, {{this.propDetails.room}}  beds, {{this.propDetails.bathroom}} baths
+
     </h5>
     <p class="m0"> Egypt, Mansoura, 5th Street</p>
 
