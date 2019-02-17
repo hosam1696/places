@@ -6,6 +6,7 @@ import {
   HttpParams
 } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
+import { GlobalProvider } from '../../providers/global/global';
 
 @IonicPage()
 @Component({
@@ -35,6 +36,7 @@ proptypeid:any;
   constructor(
     public navCtrl: NavController, 
     public viewCtrl: ViewController,
+    private globalProvider: GlobalProvider,
      public http: HttpClient,
      public storage:Storage,
     public navParams: NavParams) {
@@ -62,11 +64,12 @@ proptypeid:any;
     'properitytype_id': this.proptypeid
 
 }
-    this.http.post("http://tamleek-eg.com/tamlek/api/property/search", body)
+    // this.http.post("http://tamleek-eg.com/tamlek/api/property/search",body )
+    this.globalProvider.getSearch(null, body)
       .subscribe( (data:any) => {
         this.serchdetails=data;
         console.log(data)
-        console.log(data['_body']);
+        console.log('%c ALL Filtered Properties', 'font-weight: bold; color: green', data.properties.data);
              }
             )
   }

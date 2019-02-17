@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { SavedListPage } from './saved-list';
+import { UiProvider } from '../../providers/ui';
 
 @NgModule({
   declarations: [
@@ -9,5 +10,8 @@ import { SavedListPage } from './saved-list';
   imports: [
     IonicPageModule.forChild(SavedListPage),
   ],
+  providers: [
+    UiProvider
+  ]
 })
 export class SavedListPageModule {}

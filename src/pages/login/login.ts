@@ -53,6 +53,7 @@ export class LoginPage {
           } else {
             this.uiProvider.showToast("Email & Password are not Correct");
           }
+          this.loginPressed = false;
         }, err => {
           this.uiProvider.showToast(err.error.message);
           this.loginPressed = false;

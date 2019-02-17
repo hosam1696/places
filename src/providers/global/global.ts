@@ -34,8 +34,8 @@ getProprity(id:Number){
   getBlog (){
     return this.api.get('blog');
   }
-  getSearch (){
-    return this.api.get('property/search');
+  getSearch (body, params){
+    return this.api.get('property/search', body, params );
   }
   
 
