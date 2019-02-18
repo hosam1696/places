@@ -43,7 +43,7 @@ export class CreateAccountPage {
             this.appStorage.saveUser(result.user)
             this.appStorage.saveToken(result.user.api_token)
               .then(()=>{
-                this.navCtrl.setRoot('BasicTabsPage');
+                this.navCtrl.push('BasicTabsPage');
               });
           } else {
             this.uiProvider.showToast(result.message);

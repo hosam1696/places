@@ -70,6 +70,7 @@ proptypeid:any;
         this.serchdetails=data;
         console.log(data)
         console.log('%c ALL Filtered Properties', 'font-weight: bold; color: green', data.properties.data);
+        this.navCtrl.push('HomePage', { propertyData: data.properties.data });
              }
             )
   }

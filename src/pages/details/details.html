@@ -3,7 +3,10 @@
   <ion-navbar hideBackButton>
     <ion-buttons class="tag" left>
 
-      <button icononly end (click)="postlikedDetails()">
+      <button icononly end (click)="postlikedDetails()" *ngIf="propDetails">
+          <i class="fa fa-heart fav" aria-hidden="true" ></i>
+        </button>
+        <button icononly end (click)="postsearchDetails()" *ngIf="searchDetails">
           <i class="fa fa-heart fav" aria-hidden="true" ></i>
         </button>
       <button icononly end >
@@ -22,31 +25,15 @@
 
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="propDetails && !searchDetails">
 
 
-  <!-- <ion-slides 
-        (click)="goDetails(serv.id)"
-        *ngIf="serv.servImgs && serv.servImgs.length" 
-        autoplay="5000" 
-        loop="true" 
-        speed="500"
-        class="slides" 
-        style="max-height:200px"
-        >
-          <ion-slide *ngFor="let img of serv.servImgs">
-            <img src="{{mainUrl}}{{img}}">
-          </ion-slide>
-        </ion-slides> -->
-
-        <!-- pager="true" -->
   <ion-slides autoplay="5000" loop="true" speed="500" class="slides" style="max-height:200px">
     <ion-slide>
       <img [src]="'http://tamleek-eg.com/tamlek/'+this.propDetails.images[0].path" >    </ion-slide>
     <ion-slide>
       <img [src]="'http://tamleek-eg.com/tamlek/'+this.propDetails.images[1].path" >    </ion-slide>
     <ion-slide>
-      <!-- <img src="assets/imgs/img3.jpg"> -->
       <img [src]="'http://tamleek-eg.com/tamlek/'+this.propDetails.images[2].path" >
 
     </ion-slide>
@@ -59,6 +46,241 @@
     </h4>
     <h5 style="margin: 0px 0px 5px 0px !important;">
       Villa, {{this.propDetails.room}}  beds, {{this.propDetails.bathroom}} baths
+
+    </h5>
+    <p class="m0"> Egypt, Mansoura, 5th Street</p>
+
+    <div class="viewMap">
+      <i class="fa fa-map-marker iconColor" aria-hidden="true"></i> VIEW ON MAP
+    </div>
+
+    <!-- start Facts -->
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <h4 class="m0">
+            Facts
+          </h4>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+          <span class="fb">Referance</span>
+        </ion-col>
+        <ion-col col-6>
+          <span class="fb"> N 154</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+
+          <span class="fb"> Type</span>
+
+        </ion-col>
+        <ion-col col-6>
+          <span class="fb"> Appartment</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+          <span class="fb"> Bathrooms</span>
+        </ion-col>
+        <ion-col col-6>
+          <span class="fb"> 3</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+          <span class="fb"> Bathrooms</span>
+        </ion-col>
+        <ion-col col-6>
+          <span class="fb"> 3</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- end Facts -->
+
+    <!-- start Amenities -->
+    <ion-grid class="viewMap">
+      <ion-row>
+        <ion-col col-12>
+          <h4 class="m0">
+            Amenities
+          </h4>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+          <span>
+            <i class="fa fa-check" aria-hidden="true"></i>
+            Study
+          </span>
+        </ion-col>
+        <ion-col col-6>
+          <span>
+            <i class="fa fa-check" aria-hidden="true"></i>
+            Balcony
+          </span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-6>
+          <span>
+            <i class="fa fa-check" aria-hidden="true"></i>
+            Security
+          </span>
+        </ion-col>
+        <ion-col col-6>
+          <span>
+            <i class="fa fa-check" aria-hidden="true"></i>
+            Concierage
+          </span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-6>
+          <span>
+            <i class="fa fa-check" aria-hidden="true"></i>
+            Maid Service
+          </span>
+        </ion-col>
+        <ion-col col-6>
+          <span>
+            <i class="fa fa-check" aria-hidden="true"></i>
+            View of Water
+          </span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-6>
+          <span>
+            <i class="fa fa-check" aria-hidden="true"></i>
+            Networked
+          </span>
+        </ion-col>
+        <ion-col col-6>
+          <span>
+            <i class="fa fa-check" aria-hidden="true"></i>
+            Private Garden
+          </span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- end Amenities -->
+
+    <!-- start About the area -->
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <h4 class="m0">
+            About the area
+          </h4>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+          <span class="fb">Region </span>
+        </ion-col>
+        <ion-col col-6>
+          <span class="fb"> Cairo</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+
+          <span class="fb"> City </span>
+
+        </ion-col>
+        <ion-col col-6>
+          <span class="fb"> Mansoura</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+          <span class="fb"> District</span>
+        </ion-col>
+        <ion-col col-6>
+          <span class="fb"> The 5th Settlement</span>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+    <!-- end About the area -->
+
+    <!-- start Property description -->
+    <ion-grid class="viewMap">
+      <ion-row>
+        <ion-col col-12>
+          <h4 class="m0">
+            Property description
+          </h4>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took
+          </p>
+        </ion-col>
+
+      </ion-row>
+
+
+    </ion-grid>
+    <!-- end Property description -->
+
+    <!-- start present  -->
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <h4 class="m0">
+            This property is presented by
+          </h4>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <img src="assets/imgs/img3.jpg" style="width: 90px;">
+          <p class="m0"> Egypt Best Properties</p>
+          <p class="m0"> Egypt, Cairo, 5th</p>
+
+          <div class="viewBrok">
+            <i class="fa fa-list iconColor" aria-hidden="true"></i>
+            VIEW BROKER PROPERTIES
+          </div>
+
+        </ion-col>
+
+      </ion-row>
+
+
+    </ion-grid>
+    <!-- end Property description -->
+  </div>
+
+</ion-content>
+<ion-content *ngIf="!propDetails && searchDetails">
+
+
+  <ion-slides autoplay="5000" loop="true" speed="500" class="slides" style="max-height:200px">
+    <ion-slide>
+      <img [src]="'http://tamleek-eg.com/tamlek/'+this.searchDetails.images[0].path" >    </ion-slide>
+    <ion-slide>
+      <img [src]="'http://tamleek-eg.com/tamlek/'+this.searchDetails.images[1].path" >    </ion-slide>
+
+  </ion-slides>
+  <div class="contImg"><i class="fa fa-camera" aria-hidden="true"></i> 1 of 10</div>
+
+  <div  padding >
+    <h4 style="margin: 0px 0px 5px 0px !important;">
+      {{searchDetails.cost}} EGP
+    </h4>
+    <h5 style="margin: 0px 0px 5px 0px !important;">
+      Villa, {{searchDetails.room}}  beds, {{searchDetails.bathroom}} baths
 
     </h5>
     <p class="m0"> Egypt, Mansoura, 5th Street</p>

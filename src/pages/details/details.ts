@@ -16,11 +16,15 @@ import{HttpProvider} from '../../providers/http/http';
 })
 export class DetailsPage {
   propDetails: any;
+  searchDetails:any;
+  searchdata:any
   userData: any;
- 
+
+ commingdata:Observable<any>;
   data :Observable<any>;
   dataGet:any;
   likeddetails:any
+  likedsearch:any;
   // id:number;
   constructor(
     public navCtrl: NavController,
@@ -35,6 +39,10 @@ export class DetailsPage {
       // this.value = navParams.get('params');
       this.propDetails = this.navParams.get('details');
       console.log( this.propDetails);
+      this.searchDetails = this.navParams.get('propdetails');
+      console.log(  this.searchDetails);
+
+      
     }
 
   // ionViewDidLoad() {
@@ -60,10 +68,22 @@ export class DetailsPage {
   // }
      
   ionViewDidLoad() {
-    this.data = this.http.get("property/"+this.propDetails.id);
-    this.data.subscribe(data =>{
-      this.dataGet = data;
-    })
+    if(this.propDetails != undefined)
+    {
+      this.data = this.http.get("property/"+this.propDetails.id);
+      this.data.subscribe(data =>{
+        this.dataGet = data;
+      })
+    }
+else if(this.searchDetails != undefined)
+{
+  this.commingdata = this.http.get("property/"+this.searchDetails.id);
+  this.commingdata.subscribe(data =>{
+    this.searchdata = data;
+    console.log(this.searchdata)
+  })
+}
+
    }
   
   async postlikedDetails(){
@@ -71,10 +91,23 @@ export class DetailsPage {
   this.userData = await this.appStorage.getSavedUser();
   console.log(this.userData.api_token)
  this.globalProvider.addtoFavouriteList(this.propDetails.id ,this.userData.api_token);
-  this.data.subscribe(data =>{
-    this.likeddetails = data;
-    console.log(this.likeddetails)
-  })
+  // this.data.subscribe(data =>{
+  //   this.likeddetails = data;
+  //   console.log(this.likeddetails)
+  // })
+
+}
+
+  
+async postsearchDetails(){
+  console.log("hi")
+  this.userData = await this.appStorage.getSavedUser();
+  console.log(this.userData.api_token)
+ this.globalProvider.addtoFavouriteList(this.searchDetails.id ,this.userData.api_token);
+  // this.data.subscribe(data =>{
+  //   this.likedsearch = data;
+  //   console.log(this.likedsearch)
+  // })
 
 }
   goBack(){

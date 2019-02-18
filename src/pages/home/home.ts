@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavController, ModalController, App, IonicPage} from 'ionic-angular';
+import {NavController, ModalController, App, IonicPage, NavParams} from 'ionic-angular';
 import {AppstorageProvider} from "../../providers/appstorage/appstorage";
 import {GlobalProvider} from "../../providers/global/global";
 import { Storage } from '@ionic/storage';
@@ -15,18 +15,23 @@ export class HomePage {
   sortBySelected: string = 'featured';
   userData: any;
   mainData:any=[];
+  propData:any=[];
+  propertyDetails:boolean=false;
   constructor(
     public navCtrl: NavController,
     public app: App,
     public modalCtrl: ModalController,
     private globalProvider: GlobalProvider,
     private appStorage: AppstorageProvider,
-    public Storage:Storage
+    public Storage:Storage,
+    public navParams: NavParams
     ) {
 this.mainData=[];
   }
 
   async ionViewDidLoad() {
+   this.propData= this.navParams.get("propertyData")
+    console.log(this.navParams.get("propertyData"))
     this.userData = await this.appStorage.getSavedUser();
     this.globalProvider.getMain()
       .subscribe(
@@ -46,7 +51,12 @@ this.mainData=[];
     //this.navCtrl.setRoot('DetailsPage');
     this.app.getRootNav().setRoot('DetailsPage', params);
   }
+  goprpDetails(params){
+    console.log("propdetals")
+   // this.app.getRootNav().setRoot('DetailsPage', params);
+    this.navCtrl.push('DetailsPage', params)
 
+  }
   autoSearchPage(){
     //this.navCtrl.push('AutoSearchPage');
 
